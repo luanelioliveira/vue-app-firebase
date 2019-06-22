@@ -7,7 +7,47 @@ const signIn = ({ commit }, payload) => {
   commit('Application/SET_LOADING', true, { root: true });
   firebase.auth().signInWithEmailAndPassword(payload.email, payload.password)
     .then(() => {
-      commit('SET_CURRENT_USER', firebase.auth().currentUser);
+      const currentUser = {
+        uid: firebase.auth().currentUser.uid,
+        email: firebase.auth().currentUser.email,
+        emailVerified: firebase.auth().currentUser.emailVerified,
+        displayName: firebase.auth().currentUser.displayName,
+        photoURL: firebase.auth().currentUser.photoURL,
+        phoneNumber: firebase.auth().currentUser.phoneNumber,
+      };
+      commit('SET_CURRENT_USER', currentUser);
+      commit('SET_AUTHENTICATED', true);
+      commit('Application/SET_LOADING', false, { root: true });
+      router.push('/home');
+    })
+    .catch(() => {
+      commit('SET_CURRENT_USER', null);
+      commit('SET_AUTHENTICATED', false);
+      commit('Application/SET_LOADING', false, { root: true });
+    });
+};
+
+const signUp = ({ commit }, payload) => {
+  let currentUser = null;
+  commit('Application/SET_LOADING', true, { root: true });
+  firebase.auth().createUserWithEmailAndPassword(payload.email, payload.password)
+    .then(() => {
+      firebase.auth().currentUser.updateProfile({
+        displayName: payload.name,
+      });
+    })
+    .then(() => {
+      currentUser = {
+        uid: firebase.auth().currentUser.uid,
+        email: firebase.auth().currentUser.email,
+        emailVerified: firebase.auth().currentUser.emailVerified,
+        displayName: firebase.auth().currentUser.displayName,
+        photoURL: firebase.auth().currentUser.photoURL,
+        phoneNumber: firebase.auth().currentUser.phoneNumber,
+      };
+    })
+    .then(() => {
+      commit('SET_CURRENT_USER', currentUser);
       commit('SET_AUTHENTICATED', true);
       commit('Application/SET_LOADING', false, { root: true });
       router.push('/home');
@@ -27,6 +67,7 @@ const signOut = ({ commit }) => {
 };
 
 export default {
+  signUp,
   signIn,
   signOut,
 };

@@ -43,8 +43,6 @@
               </v-btn>
             </v-form>
           </v-card-text>
-          <v-card-actions>
-          </v-card-actions>
         </v-card>
       </v-flex>
     </v-layout>
@@ -52,6 +50,8 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex';
+
 export default {
   data() {
     return {
@@ -60,6 +60,17 @@ export default {
       password: '',
       showPassword: false,
     };
+  },
+  methods: {
+    ...mapActions('Authentication', ['signUp']),
+    signup() {
+      const user = {
+        name: this.name,
+        email: this.email,
+        password: this.password,
+      };
+      this.signUp(user);
+    },
   },
 };
 </script>
