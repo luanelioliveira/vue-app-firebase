@@ -1,6 +1,6 @@
 <template>
   <v-app>
-    <Toolbar />
+    <TheToolbar />
     <v-content>
       <router-view/>
     </v-content>
@@ -8,12 +8,12 @@
 </template>
 
 <script>
-import Toolbar from './components/Toolbar.vue';
+import TheToolbar from './components/TheToolbar.vue';
 
 export default {
   name: 'App',
   components: {
-    Toolbar,
+    TheToolbar,
   },
   data() {
     return {
