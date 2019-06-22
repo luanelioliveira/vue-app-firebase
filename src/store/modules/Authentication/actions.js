@@ -7,11 +7,13 @@ const signIn = ({ commit }, payload) => {
   commit('Application/SET_LOADING', true, { root: true });
   firebase.auth().signInWithEmailAndPassword(payload.email, payload.password)
     .then(() => {
+      commit('SET_CURRENT_USER', firebase.auth().currentUser);
       commit('SET_AUTHENTICATED', true);
       commit('Application/SET_LOADING', false, { root: true });
       router.push('/home');
     })
     .catch(() => {
+      commit('SET_CURRENT_USER', null);
       commit('SET_AUTHENTICATED', false);
       commit('Application/SET_LOADING', false, { root: true });
     });
