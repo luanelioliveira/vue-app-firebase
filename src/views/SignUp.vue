@@ -36,9 +36,15 @@
                id="password"
                 @click:append="showPassword = !showPassword">
               </v-text-field>
-            <v-btn depressed color="primary" type="submit">Criar minha conta</v-btn>
+              <v-btn depressed color="primary" type="submit">Criar minha conta</v-btn>
+              <v-btn depressed color="primary" @click="$router.go(-1)">
+                Voltar
+                <v-icon right>arrow_back</v-icon>
+              </v-btn>
             </v-form>
           </v-card-text>
+          <v-card-actions>
+          </v-card-actions>
         </v-card>
       </v-flex>
     </v-layout>
