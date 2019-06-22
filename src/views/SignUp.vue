@@ -41,7 +41,7 @@
                id="password"
                 @click:append="showPassword = !showPassword">
               </v-text-field>
-              <v-btn 
+              <v-btn
                depressed
                :loading="loading"
                :disabled="loading"
@@ -59,6 +59,10 @@
         </v-card>
       </v-flex>
     </v-layout>
+    <v-snackbar v-model="alert" :timeout="5000" absolute bottom multi-line>
+      {{this.error}}
+    <v-btn dark flat @click="alert = false">Fechar</v-btn>
+    </v-snackbar>
   </v-container>
 </template>
 
@@ -72,14 +76,29 @@ export default {
       email: '',
       password: '',
       showPassword: false,
+      alert: false,
     };
   },
   computed: {
     ...mapState('Application', ['title']),
+    ...mapState('Application', ['error']),
     ...mapState('Application', ['loading']),
+  },
+  watch: {
+    error(value) {
+      if (value) {
+        this.alert = true;
+      }
+    },
+    alert(value) {
+      if (!value) {
+        this.clearError();
+      }
+    },
   },
   methods: {
     ...mapActions('Authentication', ['signUp']),
+    ...mapActions('Application', ['clearError']),
     signup() {
       const user = {
         name: this.name,
