@@ -5,12 +5,18 @@
         <v-card class="elevation-1">
           <v-card-title primary-title>
             <div>
-              <div class="display-1 font-weight-thin">Acessar Conta</div>
-              <span class="grey--text">Informe seu e-mail e senha para acessar sua conta</span>
+              <div class="display-1 font-weight-thin">Criar uma conta</div>
             </div>
           </v-card-title>
           <v-card-text>
-            <v-form @submit.prevent="login">
+            <v-form @submit.prevent="signup">
+              <v-text-field
+               outline
+               v-model="name"
+               name="name"
+               label="Nome Completo"
+               type="text">
+              </v-text-field>
               <v-text-field
                outline
                v-model="email"
@@ -28,8 +34,7 @@
                id="password"
                 @click:append="showPassword = !showPassword">
               </v-text-field>
-            <v-btn depressed color="primary" type="submit">Acessar minha conta</v-btn>
-            <v-btn outline color="primary" to="/signup">Criar conta</v-btn>
+            <v-btn depressed color="primary" type="submit">Criar minha conta</v-btn>
             </v-form>
           </v-card-text>
         </v-card>
@@ -39,27 +44,14 @@
 </template>
 
 <script>
-import { mapActions } from 'vuex';
-
 export default {
   data() {
     return {
+      name: '',
       email: '',
       password: '',
       showPassword: false,
-      title: 'Example',
-      subtitle: 'App',
     };
-  },
-  methods: {
-    ...mapActions('Authentication', ['signIn']),
-    login() {
-      const user = {
-        email: this.email,
-        password: this.password,
-      };
-      this.signIn(user);
-    },
   },
 };
 </script>
