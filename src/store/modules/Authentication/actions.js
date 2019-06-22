@@ -60,6 +60,7 @@ const signUp = ({ commit }, payload) => {
 };
 
 const signOut = ({ commit }) => {
+  firebase.auth().signOut();
   commit('Application/SET_LOADING', true, { root: true });
   commit('SET_AUTHENTICATED', false);
   commit('Application/SET_LOADING', false, { root: true });
