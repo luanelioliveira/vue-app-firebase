@@ -13,6 +13,7 @@
               <v-text-field
                outline
                v-model="name"
+               append-icon="account_circle"
                name="name"
                label="Nome Completo"
                type="text">
