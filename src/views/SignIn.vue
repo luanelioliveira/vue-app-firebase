@@ -29,11 +29,23 @@
                id="password"
                 @click:append="showPassword = !showPassword">
               </v-text-field>
-            <v-btn depressed :loading="loading" :disabled="loading" color="primary" type="submit">Acessar minha conta</v-btn>
+            <v-btn
+             depressed
+             :loading="loading"
+             :disabled="loading"
+             color="primary"
+             type="submit"
+            >
+             Acessar minha conta
+            </v-btn>
             <v-btn outline color="primary" to="/signup">Criar conta</v-btn>
             </v-form>
           </v-card-text>
         </v-card>
+        <v-snackbar v-model="alert" :timeout="5000" absolute bottom color="error">
+          {{this.error}}
+        <v-btn dark flat @click="alert = false">Fechar</v-btn>
+        </v-snackbar>
       </v-flex>
     </v-layout>
   </v-container>
@@ -48,12 +60,24 @@ export default {
       email: '',
       password: '',
       showPassword: false,
-      title: 'Example',
-      subtitle: 'App',
+      alert: false,
     };
   },
   computed: {
+    ...mapState('Application', ['error']),
     ...mapState('Application', ['loading']),
+  },
+  watch: {
+    error(value) {
+      if (value) {
+        this.alert = true;
+      }
+    },
+    alert(value) {
+      if (!value) {
+        this.cleanError();
+      }
+    },
   },
   methods: {
     ...mapActions('Authentication', ['signIn']),

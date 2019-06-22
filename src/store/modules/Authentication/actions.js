@@ -20,9 +20,10 @@ const signIn = ({ commit }, payload) => {
       commit('Application/SET_LOADING', false, { root: true });
       router.push('/home');
     })
-    .catch(() => {
+    .catch((error) => {
       commit('SET_CURRENT_USER', null);
       commit('SET_AUTHENTICATED', false);
+      commit('Application/SET_ERROR', error, { root: true });
       commit('Application/SET_LOADING', false, { root: true });
     });
 };
