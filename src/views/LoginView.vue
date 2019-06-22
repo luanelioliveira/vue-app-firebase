@@ -13,6 +13,7 @@
             <v-form @submit.prevent="login">
               <v-text-field
                outline
+               v-model="email"
                name="email"
                label="E-mail"
                type="text">
@@ -20,6 +21,7 @@
               <v-text-field
                outline
                name="password"
+               v-model="password"
                :append-icon="showPassword ? 'visibility' : 'visibility_off'"
                :type="showPassword ? 'text' : 'password'"
                label="Senha"
@@ -52,7 +54,7 @@ export default {
     ...mapActions('Authentication', ['signIn']),
     login() {
       const user = {
-        email: this.login,
+        email: this.email,
         password: this.password,
       };
       this.signIn(user);
