@@ -1,8 +1,13 @@
 <template>
   <v-container fill-height>
     <v-layout justify-center align-center>
-      <v-flex xs12 sm6 md6 lg4 xl3>
+      <v-flex xs12 sm10 md8 lg6 xl4>
         <v-card class="elevation-1">
+          <v-toolbar dark class="elevation-0" color="secondary">
+            <v-toolbar-title>
+              {{title}}
+            </v-toolbar-title>
+          </v-toolbar>
           <v-card-title primary-title>
             <div>
               <div class="display-1 font-weight-thin">Acessar Conta</div>
@@ -65,6 +70,7 @@ export default {
     };
   },
   computed: {
+    ...mapState('Application', ['title']),
     ...mapState('Application', ['error']),
     ...mapState('Application', ['loading']),
   },
