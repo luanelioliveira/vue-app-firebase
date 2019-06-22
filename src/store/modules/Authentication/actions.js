@@ -46,6 +46,7 @@ const signUp = ({ commit }, payload) => {
         phoneNumber: firebase.auth().currentUser.phoneNumber,
       };
       commit('SET_CURRENT_USER', currentUser);
+      commit('Application/SET_ERROR', null, { root: true });
       commit('SET_AUTHENTICATED', true);
       commit('Application/SET_LOADING', false, { root: true });
       router.push('/home');
