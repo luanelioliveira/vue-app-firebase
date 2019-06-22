@@ -29,7 +29,7 @@
                id="password"
                 @click:append="showPassword = !showPassword">
               </v-text-field>
-            <v-btn depressed color="primary" type="submit">Acessar minha conta</v-btn>
+            <v-btn depressed :loading="loading" :disabled="loading" color="primary" type="submit">Acessar minha conta</v-btn>
             <v-btn outline color="primary" to="/signup">Criar conta</v-btn>
             </v-form>
           </v-card-text>
@@ -40,7 +40,7 @@
 </template>
 
 <script>
-import { mapActions } from 'vuex';
+import { mapActions, mapState } from 'vuex';
 
 export default {
   data() {
@@ -51,6 +51,9 @@ export default {
       title: 'Example',
       subtitle: 'App',
     };
+  },
+  computed: {
+    ...mapState('Application', ['loading']),
   },
   methods: {
     ...mapActions('Authentication', ['signIn']),
