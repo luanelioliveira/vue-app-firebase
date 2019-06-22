@@ -1,26 +1,32 @@
 <template>
-  <v-container fill-height text-xs-center>
+  <v-container fill-height>
     <v-layout justify-center align-center>
-      <v-flex xs10 sm6 md6 lg4 xl3>
+      <v-flex xs12 sm6 md6 lg4 xl3>
         <v-card class="elevation-1">
-          <v-toolbar class="elevation-0" dark color="primary">
-            <v-toolbar-title>Efetuar Login</v-toolbar-title>
-          </v-toolbar>
+          <v-card-title primary-title>
+            <div>
+              <div class="display-1 font-weight-thin">Acessar Conta</div>
+              <span class="grey--text">Informe seu e-mail e senha para acessar sua conta</span>
+            </div>
+          </v-card-title>
           <v-card-text>
             <v-form @submit.prevent="login">
               <v-text-field
-               prepend-icon="person"
-               name="login"
-               label="Login"
+               outline
+               name="email"
+               label="E-mail"
                type="text">
               </v-text-field>
               <v-text-field
-               prepend-icon="lock"
+               outline
                name="password"
-               label="Password"
+               :append-icon="showPassword ? 'visibility' : 'visibility_off'"
+               :type="showPassword ? 'text' : 'password'"
+               label="Senha"
                id="password"
-               type="password"></v-text-field>
-            <v-btn color="primary" type="submit">Entrar</v-btn>
+                @click:append="showPassword = !showPassword">
+              </v-text-field>
+            <v-btn depressed color="primary" type="submit">Acessar minha conta</v-btn>
             </v-form>
           </v-card-text>
         </v-card>
@@ -46,7 +52,7 @@ export default {
     ...mapActions('Authentication', ['signIn']),
     login() {
       const user = {
-        login: this.login,
+        email: this.login,
         password: this.password,
       };
       this.signIn(user);

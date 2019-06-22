@@ -1,5 +1,5 @@
 <template>
-    <v-toolbar flat app color="primary" dark>
+    <v-toolbar app dark flat color="primary" v-if="isAuthenticated">
       <v-toolbar-title class="headline text-uppercase">
         <span>{{title}}</span>
         <span class="font-weight-light">{{subtitle}}</span>
@@ -8,7 +8,7 @@
       <v-btn flat to="/login" v-if="!isAuthenticated">
         <span>Sign In</span>
       </v-btn>
-      <v-btn flat @click="logout" v-if="isAuthenticated">
+      <v-btn flat @click="logout">
         <span>Sign Out</span>
       </v-btn>
     </v-toolbar>
