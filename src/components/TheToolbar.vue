@@ -5,12 +5,6 @@
         <span class="font-weight-light">{{subtitle}}</span>
       </v-toolbar-title>
       <v-spacer></v-spacer>
-      <v-btn flat to="/" >
-        <span>Home</span>
-      </v-btn>
-      <v-btn flat to="/about" >
-        <span>About</span>
-      </v-btn>
       <v-btn flat to="/login" >
         <span>Sign In</span>
       </v-btn>
