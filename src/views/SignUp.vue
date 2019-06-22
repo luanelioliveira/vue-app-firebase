@@ -1,8 +1,13 @@
 <template>
   <v-container fill-height>
     <v-layout justify-center align-center>
-      <v-flex xs12 sm6 md6 lg4 xl3>
+      <v-flex xs12 sm10 md8 lg6 xl4>
         <v-card class="elevation-1">
+          <v-toolbar dark class="elevation-0" color="secondary">
+            <v-toolbar-title>
+              {{title}}
+            </v-toolbar-title>
+          </v-toolbar>
           <v-card-title primary-title>
             <div>
               <div class="display-1 font-weight-thin">Criar uma conta</div>
@@ -37,12 +42,13 @@
                 @click:append="showPassword = !showPassword">
               </v-text-field>
               <v-btn 
-               depressed 
-               :loading="loading" 
-               :disabled="loading" 
-               color="primary" 
+               depressed
+               :loading="loading"
+               :disabled="loading"
+               @click="loader = 'loading'"
+               color="primary"
                type="submit">
-               Criar minha conta
+                Criar minha conta
               </v-btn>
               <v-btn depressed color="primary" @click="$router.go(-1)">
                 Voltar
@@ -69,6 +75,7 @@ export default {
     };
   },
   computed: {
+    ...mapState('Application', ['title']),
     ...mapState('Application', ['loading']),
   },
   methods: {

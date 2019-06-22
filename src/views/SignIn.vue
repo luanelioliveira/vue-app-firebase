@@ -45,10 +45,9 @@
             </v-btn>
             <v-btn outline color="primary" to="/signup">Criar conta</v-btn>
             </v-form>
-          </v-card-text>          
+          </v-card-text>
         </v-card>
       </v-flex>
-      
     </v-layout>
     <v-snackbar v-model="alert" :timeout="5000" absolute bottom multi-line>
       {{this.error}}
