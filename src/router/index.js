@@ -16,7 +16,7 @@ router.beforeEach((to, from, next) => {
   if (to.matched.some(record => record.meta.requiresAuth)) {
     if (!store.state.Authentication.isAuthenticated) {
       next({
-        path: '/login',
+        path: '/signin',
       });
     } else {
       next();
