@@ -11,6 +11,9 @@
       <v-btn flat to="/about" >
         <span>About</span>
       </v-btn>
+      <v-btn flat to="/login" >
+        <span>Sign In</span>
+      </v-btn>
     </v-toolbar>
 </template>
 
