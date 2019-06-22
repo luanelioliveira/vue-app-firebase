@@ -1,11 +1,16 @@
 import Home from '@/views/Home.vue';
-import LoginView from '@/views/LoginView.vue';
+import SignIn from '@/views/SignIn.vue';
 import SignUp from '@/views/SignUp.vue';
 
 export default [
   {
     path: '/',
-    redirect: '/login',
+    redirect: '/signin',
+  },
+  {
+    path: '/signin',
+    name: 'signin',
+    component: SignIn,
   },
   {
     path: '/signup',
@@ -16,10 +21,5 @@ export default [
     path: '/home',
     name: 'home',
     component: Home,
-  },
-  {
-    path: '/login',
-    name: 'login',
-    component: LoginView,
   },
 ];
