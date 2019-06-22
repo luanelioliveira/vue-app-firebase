@@ -20,6 +20,7 @@
               <v-text-field
                outline
                v-model="email"
+               append-icon="email"
                name="email"
                label="E-mail"
                type="text">
