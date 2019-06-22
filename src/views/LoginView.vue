@@ -7,7 +7,7 @@
             <v-toolbar-title>Efetuar Login</v-toolbar-title>
           </v-toolbar>
           <v-card-text>
-            <v-form>
+            <v-form @submit.prevent="login">
               <v-text-field
                prepend-icon="person"
                name="login"
@@ -20,8 +20,8 @@
                label="Password"
                id="password"
                type="password"></v-text-field>
+            <v-btn color="primary" type="submit">Entrar</v-btn>
             </v-form>
-            <v-btn color="primary">Entrar</v-btn>
           </v-card-text>
         </v-card>
       </v-flex>
@@ -30,6 +30,8 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex';
+
 export default {
   data() {
     return {
@@ -39,6 +41,16 @@ export default {
       title: 'Example',
       subtitle: 'App',
     };
+  },
+  methods: {
+    ...mapActions('Authentication', ['signIn']),
+    login() {
+      const user = {
+        login: this.login,
+        password: this.password,
+      };
+      this.signIn(user);
+    },
   },
 };
 </script>
