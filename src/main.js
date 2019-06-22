@@ -4,6 +4,7 @@ import { sync } from 'vuex-router-sync';
 import router from './router';
 import store from './store';
 import App from './App.vue';
+import '@/configs/firebase/';
 import 'roboto-fontface/css/roboto/roboto-fontface.css';
 import 'material-design-icons-iconfont/dist/material-design-icons.css';
 
