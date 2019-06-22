@@ -41,20 +41,19 @@ const signUp = ({ commit }, payload) => {
         uid: firebase.auth().currentUser.uid,
         email: firebase.auth().currentUser.email,
         emailVerified: firebase.auth().currentUser.emailVerified,
-        displayName: firebase.auth().currentUser.displayName,
+        displayName: payload.name,
         photoURL: firebase.auth().currentUser.photoURL,
         phoneNumber: firebase.auth().currentUser.phoneNumber,
       };
-    })
-    .then(() => {
       commit('SET_CURRENT_USER', currentUser);
       commit('SET_AUTHENTICATED', true);
       commit('Application/SET_LOADING', false, { root: true });
       router.push('/home');
     })
-    .catch(() => {
+    .catch((error) => {
       commit('SET_CURRENT_USER', null);
       commit('SET_AUTHENTICATED', false);
+      commit('Application/SET_ERROR', error, { root: true });
       commit('Application/SET_LOADING', false, { root: true });
     });
 };
@@ -63,7 +62,7 @@ const signOut = ({ commit }) => {
   commit('Application/SET_LOADING', true, { root: true });
   commit('SET_AUTHENTICATED', false);
   commit('Application/SET_LOADING', false, { root: true });
-  router.push('/login');
+  router.push('/signin');
 };
 
 export default {
