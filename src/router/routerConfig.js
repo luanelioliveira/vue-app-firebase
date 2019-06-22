@@ -1,6 +1,7 @@
 import Home from '@/views/Home.vue';
 import SignIn from '@/views/SignIn.vue';
 import SignUp from '@/views/SignUp.vue';
+import NotFound from '@/views/NotFound.vue';
 
 export default [
   {
@@ -25,4 +26,13 @@ export default [
       requiresAuth: true,
     },
   },
+  {
+    path: '/404',
+    name: 'Notfound',
+    component: NotFound,
+  },
+  {
+    path: '*',
+    component: NotFound,
+  }
 ];
