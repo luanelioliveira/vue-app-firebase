@@ -5,11 +5,13 @@ import actions from './actions';
 import mutations from './mutations';
 import getters from './getters';
 import Application from './modules/Application';
+import Authentication from './modules/Authentication';
 
 Vue.use(Vuex);
 
 const modules = {
   Application,
+  Authentication,
 };
 
 export default new Vuex.Store({
