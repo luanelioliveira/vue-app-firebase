@@ -36,7 +36,14 @@
                id="password"
                 @click:append="showPassword = !showPassword">
               </v-text-field>
-              <v-btn depressed color="primary" type="submit">Criar minha conta</v-btn>
+              <v-btn 
+               depressed 
+               :loading="loading" 
+               :disabled="loading" 
+               color="primary" 
+               type="submit">
+               Criar minha conta
+              </v-btn>
               <v-btn depressed color="primary" @click="$router.go(-1)">
                 Voltar
                 <v-icon right>arrow_back</v-icon>
@@ -50,7 +57,7 @@
 </template>
 
 <script>
-import { mapActions } from 'vuex';
+import { mapActions, mapState } from 'vuex';
 
 export default {
   data() {
@@ -60,6 +67,9 @@ export default {
       password: '',
       showPassword: false,
     };
+  },
+  computed: {
+    ...mapState('Application', ['loading']),
   },
   methods: {
     ...mapActions('Authentication', ['signUp']),
