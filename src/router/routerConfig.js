@@ -1,7 +1,7 @@
 import Home from '@/views/Home.vue';
 import SignIn from '@/views/SignIn.vue';
 import SignUp from '@/views/SignUp.vue';
-import DashboardView from '@/views/DashboardView.vue';
+import AdminDashboardView from '@/views/AdminDashboardView.vue';
 import AdminUsersView from '@/views/AdminUsersView.vue';
 import NotFound from '@/views/NotFound.vue';
 
@@ -31,7 +31,7 @@ export default [
   {
     path: '/dashboard',
     name: 'dashboard',
-    component: DashboardView,
+    component: AdminDashboardView,
     meta: {
       requiresAuth: true,
     },
