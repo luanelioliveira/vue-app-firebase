@@ -24,7 +24,7 @@
         </v-list-tile-action>
         <v-list-tile-title>Home</v-list-tile-title>
       </v-list-tile>
-      <TheNavigationDrawerListAdmin />
+      <TheNavigationDrawerListAdmin v-if="isAdmin"/>
       <v-list-tile @click="logout">
         <v-list-tile-action>
           <v-icon>exit_to_app</v-icon>
@@ -36,7 +36,7 @@
 </template>
 
 <script>
-import { mapState, mapActions } from 'vuex';
+import { mapState, mapActions, mapGetters } from 'vuex';
 import TheNavigationDrawerListAdmin from './TheNavigationDrawerListAdmin.vue';
 
 export default {
@@ -54,6 +54,7 @@ export default {
   computed: {
     ...mapState('Application', ['drawer']),
     ...mapState('Authentication', ['currentUser']),
+    ...mapGetters('Authentication', ['isAdmin']),
     statusDrawer: {
       get() {
         return this.drawer;
