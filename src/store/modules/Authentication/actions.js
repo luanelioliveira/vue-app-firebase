@@ -45,7 +45,9 @@ const signUp = ({ commit }, payload) => {
         displayName: payload.name,
         photoURL: firebase.auth().currentUser.photoURL,
         phoneNumber: firebase.auth().currentUser.phoneNumber,
+        isAdmin: false,
       };
+      firebase.database().ref(`users/${currentUser.uid}`).set(currentUser);
       commit('SET_CURRENT_USER', currentUser);
       commit('Application/SET_ERROR', null, { root: true });
       commit('SET_AUTHENTICATED', true);
