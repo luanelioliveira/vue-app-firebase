@@ -1,6 +1,7 @@
 import Home from '@/views/Home.vue';
 import SignIn from '@/views/SignIn.vue';
 import SignUp from '@/views/SignUp.vue';
+import DashboardView from '@/views/DashboardView.vue';
 import NotFound from '@/views/NotFound.vue';
 
 export default [
@@ -22,6 +23,14 @@ export default [
     path: '/home',
     name: 'home',
     component: Home,
+    meta: {
+      requiresAuth: true,
+    },
+  },
+  {
+    path: '/dashboard',
+    name: 'dashboard',
+    component: DashboardView,
     meta: {
       requiresAuth: true,
     },
