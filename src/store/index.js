@@ -5,13 +5,17 @@ import actions from './actions';
 import mutations from './mutations';
 import getters from './getters';
 import Application from './modules/Application';
+// eslint-disable-next-line
 import Authentication from './modules/Authentication';
+import Users from './modules/Users';
+
 
 Vue.use(Vuex);
 
 const modules = {
   Application,
   Authentication,
+  Users,
 };
 
 export default new Vuex.Store({

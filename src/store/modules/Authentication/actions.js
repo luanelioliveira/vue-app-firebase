@@ -19,7 +19,6 @@ const signIn = ({ commit }, payload) => {
       };
       firebase.database().ref(`users/${currentUser.uid}`).once('value')
         .then((user) => {
-          console.log(user.val());
           currentUser.isAdmin = user.val().isAdmin;
           firebase.database().ref('users').child(currentUser.uid).update(currentUser);
           commit('SET_CURRENT_USER', currentUser);

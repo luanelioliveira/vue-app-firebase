@@ -21,9 +21,10 @@
         <v-list-tile
           v-for="(user, i) in users"
           :key="i"
-          to=""
+          :to="user[2]"
         >
-          <v-list-tile-title v-text="user[0]"></v-list-tile-title>
+          <v-list-tile-title v-text="user[0]">
+          </v-list-tile-title>
           <v-list-tile-action>
             <v-icon v-text="user[1]"></v-icon>
           </v-list-tile-action>
@@ -39,8 +40,8 @@ export default {
   data() {
     return {
       users: [
-        ['Gerenciamento', 'people_outline'],
-        ['Configuração', 'settings'],
+        ['Gerenciamento', 'people_outline', '/admin/users'],
+        ['Configuração', 'settings', ''],
       ],
     };
   },
