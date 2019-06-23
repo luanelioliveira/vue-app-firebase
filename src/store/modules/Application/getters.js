@@ -9,8 +9,14 @@ const title = (state) => {
 const error = (state) => {
   return state.error;
 };
+
+const drawer = (state) => {
+  return state.drawer;
+};
+
 export default {
   loading,
   title,
   error,
+  drawer,
 };

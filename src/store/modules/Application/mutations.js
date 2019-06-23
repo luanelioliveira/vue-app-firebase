@@ -13,8 +13,14 @@ const SET_ERROR = (state, error) => {
   s.error = error;
 };
 
+const SET_DRAWER = (state, drawer) => {
+  const s = state;
+  s.drawer = drawer;
+};
+
 export default {
   SET_LOADING,
   SET_TITLE,
   SET_ERROR,
+  SET_DRAWER,
 };
