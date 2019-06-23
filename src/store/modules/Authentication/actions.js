@@ -4,21 +4,34 @@ import router from '@/router/index';
 import firebase from 'firebase';
 
 const signIn = ({ commit }, payload) => {
+  let currentUser = null;
   commit('Application/SET_LOADING', true, { root: true });
   firebase.auth().signInWithEmailAndPassword(payload.email, payload.password)
     .then(() => {
-      const currentUser = {
+      currentUser = {
         uid: firebase.auth().currentUser.uid,
         email: firebase.auth().currentUser.email,
         emailVerified: firebase.auth().currentUser.emailVerified,
         displayName: firebase.auth().currentUser.displayName,
         photoURL: firebase.auth().currentUser.photoURL,
         phoneNumber: firebase.auth().currentUser.phoneNumber,
+        isAdmin: false,
       };
-      commit('SET_CURRENT_USER', currentUser);
-      commit('SET_AUTHENTICATED', true);
-      commit('Application/SET_LOADING', false, { root: true });
-      router.push('/home');
+      firebase.database().ref(`users/${currentUser.uid}`).once('value')
+        .then((user) => {
+          console.log(user.val());
+          currentUser.isAdmin = user.val().isAdmin;
+          commit('SET_CURRENT_USER', currentUser);
+          commit('SET_AUTHENTICATED', true);
+          commit('Application/SET_LOADING', false, { root: true });
+          router.push('/home');
+        })
+        .catch((error) => {
+          commit('SET_CURRENT_USER', null);
+          commit('SET_AUTHENTICATED', false);
+          commit('Application/SET_ERROR', error, { root: true });
+          commit('Application/SET_LOADING', false, { root: true });
+        });
     })
     .catch((error) => {
       commit('SET_CURRENT_USER', null);
