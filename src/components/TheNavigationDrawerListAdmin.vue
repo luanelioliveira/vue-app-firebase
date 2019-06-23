@@ -6,26 +6,18 @@
       </v-list-tile-action>
       <v-list-tile-title>Dashboard</v-list-tile-title>
     </v-list-tile>
-    <v-list-group
-      prepend-icon="build"
-      value="true"
-    >
+    <v-list-group prepend-icon="build">
       <template v-slot:activator>
         <v-list-tile>
           <v-list-tile-title>Administração</v-list-tile-title>
         </v-list-tile>
       </template>
-      <v-list-group
-        no-action
-        sub-group
-        value="true"
-      >
+      <v-list-group no-action sub-group>
         <template v-slot:activator>
           <v-list-tile>
             <v-list-tile-title>Usuários</v-list-tile-title>
           </v-list-tile>
         </template>
-
         <v-list-tile
           v-for="(user, i) in users"
           :key="i"

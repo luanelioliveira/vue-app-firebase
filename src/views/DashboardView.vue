@@ -7,5 +7,5 @@
         </h1>
       </v-flex>
     </v-layout>
-  </v-container>  
+  </v-container>
 </template>

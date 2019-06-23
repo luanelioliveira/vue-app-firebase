@@ -7,12 +7,9 @@
         <span class="font-weight-light">{{subtitle}}</span>
       </v-toolbar-title>
       <v-spacer></v-spacer>
-      <v-btn flat to="/login" v-if="!isAuthenticated">
-        <span>Sign In</span>
-      </v-btn>
-      <v-btn flat @click="logout">
-        <span>Sign Out</span>
-      </v-btn>
+      <v-toolbar-items>
+        <v-btn flat @click="logout">Sign Out</v-btn>
+      </v-toolbar-items>
     </v-toolbar>
     <TheNavigationDrawer />
   </div>
