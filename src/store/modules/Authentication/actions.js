@@ -24,7 +24,7 @@ const signIn = ({ commit }, payload) => {
           commit('SET_CURRENT_USER', currentUser);
           commit('SET_AUTHENTICATED', true);
           commit('Application/SET_LOADING', false, { root: true });
-          router.push('/home');
+          router.push('/dashboard');
         })
         .catch((error) => {
           commit('SET_CURRENT_USER', null);
@@ -65,7 +65,7 @@ const signUp = ({ commit }, payload) => {
       commit('Application/SET_ERROR', null, { root: true });
       commit('SET_AUTHENTICATED', true);
       commit('Application/SET_LOADING', false, { root: true });
-      router.push('/home');
+      router.push('/dashboard');
     })
     .catch((error) => {
       commit('SET_CURRENT_USER', null);

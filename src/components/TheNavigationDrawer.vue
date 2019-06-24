@@ -18,11 +18,11 @@
 
     <v-list class="pt-0" dense>
       <v-divider></v-divider>
-      <v-list-tile to="/home">
+        <v-list-tile to="/dashboard">
         <v-list-tile-action>
-          <v-icon>home</v-icon>
+          <v-icon>dashboard</v-icon>
         </v-list-tile-action>
-        <v-list-tile-title>Home</v-list-tile-title>
+        <v-list-tile-title>Dashboard</v-list-tile-title>
       </v-list-tile>
       <TheNavigationDrawerListAdmin v-if="isAdmin"/>
       <v-list-tile @click="logout">
