@@ -1,7 +1,7 @@
 <template>
   <v-btn flat small @click="logout">
     Sair
-    <v-icon right small dark>power_settings_new</v-icon>
+    <v-icon right dark>exit_to_app</v-icon>
   </v-btn>
 </template>
 
