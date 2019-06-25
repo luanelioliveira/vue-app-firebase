@@ -7,8 +7,9 @@
 </template>
 
 <script>
-import { mapState } from 'vuex';
+// eslint-disable-next-line
 import Loading from 'vue-full-loading';
+import { mapState } from 'vuex';
 
 export default {
   data() {
