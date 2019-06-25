@@ -1,6 +1,6 @@
 <template>
   <div>
-    <v-list two-line class="pa-1">
+    <v-list two-line class="pa-1" >
       <v-list-tile avatar>
         <v-list-tile-avatar>
           <img src="https://randomuser.me/api/portraits/men/85.jpg">
