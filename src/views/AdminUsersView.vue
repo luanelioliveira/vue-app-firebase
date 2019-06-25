@@ -1,40 +1,29 @@
 <template>
-  <v-container>
-    <v-layout
-      column
-      wrap
-      class="my-5"
-      justify-space-around
-    >
-      <v-flex class='my-4'>
-        <h1 class='display-1 font-weight-light'>
-          Cadastro de Usuários
-        </h1>
-      </v-flex>
-      <v-flex>
-        <div>
-          <v-data-table
-            :headers="headers"
-            :items="users"
-            :search="search"
-            hide-actions
-            :pagination.sync="pagination"
-            class="elevation-1"
-          >
-            <template v-slot:items="props">
-              <td class="text-xs-left">{{ props.item.displayName }}</td>
-              <td class="text-xs-left">{{ props.item.email }}</td>
-              <td class="text-xs-left">{{ props.item.isAdmin }}</td>
-              <td class="text-xs-left">{{ props.item.emailVerified }}</td>
-            </template>
-          </v-data-table>
-          <div class="text-xs-center pt-2">
-            <v-pagination v-model="pagination.page" :length="pages"></v-pagination>
-          </div>
+  <div>
+    <title-page :text="titlePage" />
+    <v-flex>
+      <div>
+        <v-data-table
+          :headers="headers"
+          :items="users"
+          :search="search"
+          hide-actions
+          :pagination.sync="pagination"
+          class="elevation-1"
+        >
+          <template v-slot:items="props">
+            <td class="text-xs-left">{{ props.item.displayName }}</td>
+            <td class="text-xs-left">{{ props.item.email }}</td>
+            <td class="text-xs-left">{{ props.item.isAdmin }}</td>
+            <td class="text-xs-left">{{ props.item.emailVerified }}</td>
+          </template>
+        </v-data-table>
+        <div class="text-xs-center pt-2">
+          <v-pagination v-model="pagination.page" :length="pages"></v-pagination>
         </div>
-      </v-flex>
-    </v-layout>
-  </v-container>
+      </div>
+    </v-flex>
+  </div>
 </template>
 
 <script>
@@ -43,6 +32,7 @@ import { mapGetters, mapActions } from 'vuex';
 export default {
   data() {
     return {
+      titlePage: 'Cadastro de Usuários',
       search: '',
       pagination: {},
       selected: [],
@@ -69,7 +59,6 @@ export default {
   },
   mounted() {
     this.getUsers();
-    console.log(this.users);
   },
   computed: {
     ...mapGetters('Users', ['users']),

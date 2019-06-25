@@ -11,7 +11,7 @@
 export default {
   data() {
     return {
-      titlePage: 'Dashboard',
+      titlePage: 'Configuração dos Usuários',
     };
   },
 };

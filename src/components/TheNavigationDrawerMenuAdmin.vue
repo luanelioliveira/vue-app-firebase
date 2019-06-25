@@ -36,7 +36,7 @@ export default {
     return {
       users: [
         ['Gerenciamento', 'people_outline', '/admin/users'],
-        ['Configuração', 'settings', ''],
+        ['Configuração', 'settings', '/admin/users-config'],
       ],
     };
   },

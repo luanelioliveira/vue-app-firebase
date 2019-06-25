@@ -2,9 +2,13 @@
   <v-app>
     <TheToolbar />
     <TheNavigationDrawer />
-    <v-content>
-      <router-view/>
-    </v-content>
+    <v-container>
+      <v-layout column wrap>
+        <v-content>
+          <router-view/>
+        </v-content>
+      </v-layout>
+    </v-container>
   </v-app>
 </template>
 
