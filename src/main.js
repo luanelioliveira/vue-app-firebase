@@ -7,7 +7,6 @@ import DateFilter from './filters/date';
 import '@/configs/firebase/';
 import 'roboto-fontface/css/roboto/roboto-fontface.css';
 import 'material-design-icons-iconfont/dist/material-design-icons.css';
-
 import App from './App.vue';
 import TitlePage from './components/TitlePage.vue';
 
