@@ -1,7 +1,7 @@
 <template>
   <v-container fill-height>
     <v-layout justify-center align-center>
-      <v-flex xs12 sm10 md8 lg6 xl4>
+      <v-flex xs12 sm10 md8 lg5 xl4>
         <v-card class="elevation-0 transparent">
           <v-card-title primary-title>
             <div>
@@ -10,7 +10,7 @@
             </div>
           </v-card-title>
           <v-card-text>
-            <v-form @submit.prevent="login">
+            <v-form @submit.prevent="login" autocomplete="off">
               <v-text-field
                outline
                v-model="email"

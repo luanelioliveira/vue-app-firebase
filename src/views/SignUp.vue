@@ -1,11 +1,11 @@
 <template>
   <v-container fill-height>
     <v-layout justify-center align-center>
-      <v-flex xs12 sm10 md8 lg6 xl4>
+      <v-flex xs12 sm10 md8 lg5 xl4>
         <v-card class="elevation-0 transparent">
           <v-card-title primary-title>
             <div>
-              <div class="display-1 font-weight-thin">Criar uma conta</div>
+              <div class="display-1 font-weight-thin">Criar Conta</div>
               <span class="grey--text">Informe seu dados para criar sua conta!</span>
             </div>
           </v-card-title>
