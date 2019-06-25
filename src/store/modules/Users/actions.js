@@ -15,6 +15,9 @@ const getUsers = ({ commit }) => {
           photoURL: user.val().photoURL,
           phoneNumber: user.val().phoneNumber,
           isAdmin: user.val().isAdmin,
+          createdAt: user.val().createdAt,
+          updatedAt: user.val().updatedAt,
+          lastLogin: user.val().lastLogin,
         });
       });
       commit('SET_USERS', users);

@@ -16,6 +16,9 @@
             <td class="text-xs-left">{{ props.item.email }}</td>
             <td class="text-xs-left">{{ props.item.isAdmin }}</td>
             <td class="text-xs-left">{{ props.item.emailVerified }}</td>
+            <td class="text-xs-left">{{ props.item.createdAt }}</td>
+            <td class="text-xs-left">{{ props.item.updatedAt }}</td>
+            <td class="text-xs-left">{{ props.item.lastLogin }}</td>
           </template>
         </v-data-table>
         <div class="text-xs-center pt-2">
@@ -53,6 +56,18 @@ export default {
         {
           text: 'E-mail validado?',
           value: 'emailVerified',
+        },
+        {
+          text: 'Data de criação',
+          value: 'createdAt',
+        },
+        {
+          text: 'Data de atualização',
+          value: 'updatedAt',
+        },
+        {
+          text: 'Último acesso',
+          value: 'lastLogin',
         },
       ],
     };

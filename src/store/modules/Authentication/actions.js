@@ -8,6 +8,7 @@ const signIn = ({ commit }, payload) => {
   commit('Application/SET_LOADING', true, { root: true });
   firebase.auth().signInWithEmailAndPassword(payload.email, payload.password)
     .then(() => {
+      const date = new Date(Date.now());
       currentUser = {
         uid: firebase.auth().currentUser.uid,
         email: firebase.auth().currentUser.email,
@@ -15,9 +16,9 @@ const signIn = ({ commit }, payload) => {
         displayName: firebase.auth().currentUser.displayName,
         photoURL: firebase.auth().currentUser.photoURL,
         phoneNumber: firebase.auth().currentUser.phoneNumber,
-        createdAt: Date.now(),
-        updatedAt: Date.now(),
-        lastLogin: Date.now(),
+        createdAt: date.toISOString(),
+        updatedAt: date.toISOString(),
+        lastLogin: date.toISOString(),
         isAdmin: false,
       };
       firebase.database().ref(`users/${currentUser.uid}`).once('value')
@@ -56,6 +57,7 @@ const signUp = ({ commit }, payload) => {
       });
     })
     .then(() => {
+      const date = new Date(Date.now());
       currentUser = {
         uid: firebase.auth().currentUser.uid,
         email: firebase.auth().currentUser.email,
@@ -63,9 +65,9 @@ const signUp = ({ commit }, payload) => {
         displayName: payload.name,
         photoURL: firebase.auth().currentUser.photoURL,
         phoneNumber: firebase.auth().currentUser.phoneNumber,
-        createdAt: Date.now(),
-        updatedAt: Date.now(),
-        lastLogin: Date.now(),
+        createdAt: date.toISOString(),
+        updatedAt: date.toISOString(),
+        lastLogin: date.toISOString(),
         isAdmin: false,
       };
       firebase.database().ref(`users/${currentUser.uid}`).set(currentUser);
