@@ -1,5 +1,5 @@
 <template>
-    <v-flex class='my-3'>
+    <v-flex xs12 class='my-3'>
       <h1 class='display-1 font-weight-light'>{{text}}</h1>
     </v-flex>
 </template>

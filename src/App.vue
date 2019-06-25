@@ -2,13 +2,11 @@
   <v-app>
     <TheToolbar />
     <TheNavigationDrawer />
-    <v-container>
-      <v-layout column wrap>
-        <v-content>
-          <router-view/>
-        </v-content>
-      </v-layout>
-    </v-container>
+    <v-content>
+      <v-container fluid>
+        <router-view/>
+      </v-container>
+    </v-content>
   </v-app>
 </template>
 
