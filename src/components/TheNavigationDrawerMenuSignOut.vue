@@ -8,10 +8,13 @@
     </v-list-tile>
   </div>
 </template>
+
 <script>
+import { mapActions } from 'vuex';
 
 export default {
   methods: {
+    ...mapActions('Authentication', ['signOut']),
     logout() {
       this.signOut();
     },
