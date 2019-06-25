@@ -15,11 +15,16 @@ const signIn = ({ commit }, payload) => {
         displayName: firebase.auth().currentUser.displayName,
         photoURL: firebase.auth().currentUser.photoURL,
         phoneNumber: firebase.auth().currentUser.phoneNumber,
+        createdAt: Date.now(),
+        updatedAt: Date.now(),
+        lastLogin: Date.now(),
         isAdmin: false,
       };
       firebase.database().ref(`users/${currentUser.uid}`).once('value')
         .then((user) => {
           currentUser.isAdmin = user.val().isAdmin;
+          currentUser.createdAt = user.val().createdAt;
+          currentUser.updatedAt = user.val().updatedAt;
           firebase.database().ref('users').child(currentUser.uid).update(currentUser);
           commit('SET_CURRENT_USER', currentUser);
           commit('SET_AUTHENTICATED', true);
@@ -58,6 +63,9 @@ const signUp = ({ commit }, payload) => {
         displayName: payload.name,
         photoURL: firebase.auth().currentUser.photoURL,
         phoneNumber: firebase.auth().currentUser.phoneNumber,
+        createdAt: Date.now(),
+        updatedAt: Date.now(),
+        lastLogin: Date.now(),
         isAdmin: false,
       };
       firebase.database().ref(`users/${currentUser.uid}`).set(currentUser);
