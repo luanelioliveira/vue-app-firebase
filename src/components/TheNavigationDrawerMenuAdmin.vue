@@ -1,5 +1,5 @@
 <template>
-  <div>    
+  <div v-if="isAdmin" >
     <v-list-group prepend-icon="build">
       <template v-slot:activator>
         <v-list-tile>
@@ -29,6 +29,7 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex';
 
 export default {
   data() {
@@ -38,6 +39,9 @@ export default {
         ['Configuração', 'settings', ''],
       ],
     };
+  },
+  computed: {
+    ...mapGetters('Authentication', ['isAdmin']),
   },
 };
 </script>

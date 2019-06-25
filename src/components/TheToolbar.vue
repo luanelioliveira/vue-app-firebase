@@ -1,47 +1,28 @@
 <template>
-  <div id="navigation">
+  <div id="toolbar">
     <v-toolbar app dark flat color="primary" v-if="isAuthenticated">
-      <v-toolbar-side-icon @click.stop="toogle"></v-toolbar-side-icon>
-      <v-toolbar-title class="headline text-uppercase">
-        <span>{{title}}</span>
-        <span class="font-weight-light">{{subtitle}}</span>
-      </v-toolbar-title>
+      <TheToolbarSide />
+      <TheToolbarTitle />
       <v-spacer></v-spacer>
-      <v-toolbar-items>
-        <v-btn flat @click="logout">Sign Out</v-btn>
-      </v-toolbar-items>
+      <TheToolbarItemsRight />
     </v-toolbar>
-    <TheNavigationDrawer />
   </div>
 </template>
 
 <script>
-import { mapState, mapActions } from 'vuex';
-import TheNavigationDrawer from './TheNavigationDrawer.vue';
+import { mapState } from 'vuex';
+import TheToolbarSide from './TheToolbarSide.vue';
+import TheToolbarTitle from './TheToolbarTitle.vue';
+import TheToolbarItemsRight from './TheToolbarItemsRight.vue';
 
 export default {
   components: {
-    TheNavigationDrawer,
-  },
-  data() {
-    return {
-      title: 'Example',
-      subtitle: 'App',
-    };
+    TheToolbarSide,
+    TheToolbarTitle,
+    TheToolbarItemsRight,
   },
   computed: {
     ...mapState('Authentication', ['isAuthenticated']),
-    ...mapState('Application', ['drawer']),
-  },
-  methods: {
-    ...mapActions('Authentication', ['signOut']),
-    ...mapActions('Application', ['setDrawer']),
-    logout() {
-      this.signOut();
-    },
-    toogle() {
-      this.setDrawer(!this.drawer);
-    },
   },
 };
 </script>

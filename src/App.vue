@@ -1,6 +1,7 @@
 <template>
   <v-app>
     <TheToolbar />
+    <TheNavigationDrawer />
     <v-content>
       <router-view/>
     </v-content>
@@ -9,11 +10,13 @@
 
 <script>
 import TheToolbar from './components/TheToolbar.vue';
+import TheNavigationDrawer from './components/TheNavigationDrawer.vue';
 
 export default {
   name: 'App',
   components: {
     TheToolbar,
+    TheNavigationDrawer,
   },
   data() {
     return {
