@@ -9,6 +9,7 @@
           <v-list-tile-title>{{currentUser.displayName}}</v-list-tile-title>
           <v-list-tile-sub-title>{{currentUser.email}}</v-list-tile-sub-title>
         </v-list-tile-content>
+        <TheNavigationDrawerProfileClosed/>
       </v-list-tile>
       <v-divider></v-divider>
     </v-list>
@@ -17,8 +18,12 @@
 
 <script>
 import { mapState } from 'vuex';
+import TheNavigationDrawerProfileClosed from './TheNavigationDrawerProfileClosed.vue';
 
 export default {
+  components: {
+    TheNavigationDrawerProfileClosed,
+  },
   computed: {
     ...mapState('Authentication', ['currentUser']),
   },
