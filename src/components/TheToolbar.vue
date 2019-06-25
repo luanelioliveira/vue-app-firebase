@@ -1,6 +1,13 @@
 <template>
   <div id="toolbar">
-    <v-toolbar app dark flat color="primary" v-if="isAuthenticated">
+    <v-toolbar
+      absolute
+      clipped-left
+      app
+      dark
+      color="primary"
+      v-if="isAuthenticated"
+    >
       <TheToolbarSide />
       <TheToolbarTitle />
       <v-spacer></v-spacer>

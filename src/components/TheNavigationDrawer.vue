@@ -1,5 +1,10 @@
 <template>
-  <v-navigation-drawer v-model="statusDrawer" absolute temporary>
+  <v-navigation-drawer
+    v-model="statusDrawer"
+    fixed
+    clipped
+    app
+  >
     <TheNavigationDrawerProfile />
     <TheNavigationDrawerMenu />
   </v-navigation-drawer>

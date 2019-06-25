@@ -1,7 +1,7 @@
 <template>
   <v-app>
-    <TheToolbar />
     <TheNavigationDrawer />
+    <TheToolbar />
     <v-content>
       <v-container fluid>
         <router-view/>
