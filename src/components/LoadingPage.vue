@@ -11,9 +11,8 @@ import { mapState } from 'vuex';
 import Loading from 'vue-full-loading';
 
 export default {
-  data(){
+  data() {
     return {
-      base,
       show: false,
       overlay: true,
       label: 'Loading...',
