@@ -5,7 +5,7 @@
       clipped-left
       app
       dark
-      color="primary"
+      color="purple darken-4"
       v-if="isAuthenticated"
     >
       <TheToolbarSide />
