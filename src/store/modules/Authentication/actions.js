@@ -59,12 +59,13 @@ const signUp = ({ commit }, payload) => {
     })
     .then(() => {
       const date = new Date(Date.now());
+      const photoURL = 'https://firebasestorage.googleapis.com/v0/b/vue-app-firebase-921f6.appspot.com/o/images%2Fuser.png?alt=media&token=4e903c7e-7944-425d-beea-6c9170f0bcbd';
       currentUser = {
         uid: firebase.auth().currentUser.uid,
         email: firebase.auth().currentUser.email,
         emailVerified: firebase.auth().currentUser.emailVerified,
         displayName: payload.name,
-        photoURL: firebase.auth().currentUser.photoURL,
+        photoURL: photoURL,
         phoneNumber: firebase.auth().currentUser.phoneNumber,
         createdAt: date.toISOString(),
         updatedAt: date.toISOString(),
