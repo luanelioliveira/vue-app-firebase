@@ -1,7 +1,5 @@
 <template>
-  <v-toolbar-items>
     <TheToolbarItemsRightSignOut />
-  </v-toolbar-items>
 </template>
 
 <script>

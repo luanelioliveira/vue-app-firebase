@@ -1,5 +1,8 @@
 <template>
-  <v-btn flat @click="logout">Sair</v-btn>
+  <v-btn flat small @click="logout">
+    Sair
+    <v-icon right small dark>power_settings_new</v-icon>
+  </v-btn>
 </template>
 
 <script>
