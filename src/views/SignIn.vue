@@ -6,7 +6,7 @@
           <v-card-title primary-title>
             <div>
               <div class="display-1 font-weight-thin">Acessar Conta</div>
-              <span class="grey--text">Informe seu e-mail e senha para acessar sua conta</span>
+              <span class="grey--text">Informe seu e-mail e senha para acessar sua conta!</span>
             </div>
           </v-card-title>
           <v-card-text>
