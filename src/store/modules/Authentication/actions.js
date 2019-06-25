@@ -5,29 +5,27 @@ import firebase from 'firebase';
 
 const signIn = ({ commit }, payload) => {
   let currentUser = null;
+  let userId = null;
   commit('Application/SET_LOADING', true, { root: true });
   firebase.auth().signInWithEmailAndPassword(payload.email, payload.password)
     .then(() => {
+      userId = firebase.auth().currentUser.uid;
       const date = new Date(Date.now());
-      currentUser = {
-        uid: firebase.auth().currentUser.uid,
-        email: firebase.auth().currentUser.email,
-        emailVerified: firebase.auth().currentUser.emailVerified,
-        displayName: firebase.auth().currentUser.displayName,
-        photoURL: firebase.auth().currentUser.photoURL,
-        phoneNumber: firebase.auth().currentUser.phoneNumber,
-        createdAt: date.toISOString(),
-        updatedAt: date.toISOString(),
-        lastLogin: date.toISOString(),
-        isAdmin: false,
-      };
-      firebase.database().ref(`users/${currentUser.uid}`).once('value')
+      firebase.database().ref('users').child(userId).once('value')
         .then((user) => {
-          currentUser.isAdmin = user.val().isAdmin;
-          currentUser.createdAt = user.val().createdAt;
-          currentUser.updatedAt = user.val().updatedAt;
-          currentUser.photoURL = user.val().photoURL;
-          firebase.database().ref('users').child(currentUser.uid).update(currentUser);
+          currentUser = {
+            uid: user.val().uid,
+            email: user.val().email,
+            emailVerified: user.val().emailVerified,
+            displayName: user.val().displayName,
+            photoURL: user.val().photoURL,
+            phoneNumber: user.val().phoneNumber,
+            createdAt: user.val().createdAt,
+            updatedAt: user.val().updatedAt,
+            lastLogin: date.toISOString(),
+            isAdmin: user.val().isAdmin,
+          };
+          firebase.database().ref('users').child(userId).update({ lastLogin: currentUser.lastLogin });
           commit('SET_CURRENT_USER', currentUser);
           commit('SET_AUTHENTICATED', true);
           commit('Application/SET_LOADING', false, { root: true });
@@ -71,7 +69,8 @@ const signUp = ({ commit }, payload) => {
         lastLogin: date.toISOString(),
         isAdmin: false,
       };
-      firebase.database().ref(`users/${currentUser.uid}`).set(currentUser);
+      const usersRef = firebase.database().ref('users').child(currentUser.uid);
+      usersRef.set(currentUser);
       commit('SET_CURRENT_USER', currentUser);
       commit('Application/SET_ERROR', null, { root: true });
       commit('SET_AUTHENTICATED', true);

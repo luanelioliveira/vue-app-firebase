@@ -2,9 +2,10 @@
 import firebase from 'firebase';
 
 const getUsers = ({ commit }) => {
-  const users = [];
   commit('Application/SET_LOADING', true, { root: true });
-  firebase.database().ref('/users').once('value')
+  const users = [];
+  const usersRef = firebase.database().ref('users');
+  usersRef.once('value')
     .then((snapshot) => {
       snapshot.forEach((user) => {
         users.push({
