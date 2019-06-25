@@ -26,6 +26,7 @@ const signIn = ({ commit }, payload) => {
           currentUser.isAdmin = user.val().isAdmin;
           currentUser.createdAt = user.val().createdAt;
           currentUser.updatedAt = user.val().updatedAt;
+          currentUser.photoURL = user.val().photoURL;
           firebase.database().ref('users').child(currentUser.uid).update(currentUser);
           commit('SET_CURRENT_USER', currentUser);
           commit('SET_AUTHENTICATED', true);
@@ -90,7 +91,6 @@ const signOut = ({ commit }) => {
   commit('Application/SET_LOADING', true, { root: true });
   commit('Application/SET_DRAWER', false, { root: true });
   commit('SET_AUTHENTICATED', false);
-  commit('SET_CURRENT_USER', null);
   commit('Application/SET_LOADING', false, { root: true });
   router.push('/signin');
 };

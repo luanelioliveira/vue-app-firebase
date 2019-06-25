@@ -3,7 +3,7 @@
     <v-list two-line class="pa-1" >
       <v-list-tile avatar>
         <v-list-tile-avatar>
-          <img src="https://randomuser.me/api/portraits/men/85.jpg">
+          <img :src="currentUser.photoURL">
         </v-list-tile-avatar>
         <v-list-tile-content>
           <v-list-tile-title>{{currentUser.displayName}}</v-list-tile-title>
