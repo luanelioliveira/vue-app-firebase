@@ -38,7 +38,7 @@
                 @click:append="showPassword = !showPassword">
               </v-text-field>
               <v-btn
-               depressed
+               depressed block large
                :loading="loading"
                :disabled="loading"
                @click="loader = 'loading'"
@@ -46,7 +46,7 @@
                type="submit">
                 Criar minha conta
               </v-btn>
-              <v-btn depressed flat color="primary" @click="$router.go(-1)">
+              <v-btn class="ml-0" depressed flat color="primary" @click="$router.go(-1)">
                 Voltar
                 <v-icon right>arrow_back</v-icon>
               </v-btn>
