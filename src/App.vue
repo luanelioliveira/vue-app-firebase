@@ -2,13 +2,13 @@
   <v-app>
     <TheNavigationDrawer />
     <TheToolbar />
-    <v-content>
+    <v-content transition="fade-transition">
       <v-container fluid>
-        <loading-page/>
         <router-view/>
       </v-container>
     </v-content>
     <TheFooter />
+    <loading-page/>
   </v-app>
 </template>
 
