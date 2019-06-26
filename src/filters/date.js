@@ -7,5 +7,5 @@ export default (value) => {
     hour: '2-digit',
     minute: '2-digit',
   };
-  return date.toLocaleDateString(['en-US'], options);
+  return date.toLocaleDateString(['pt-BR'], options);
 };
