@@ -1,7 +1,38 @@
-
+import firebase from 'firebase';
 // eslint-disable-next-line
 import router from '@/router/index';
-import firebase from 'firebase';
+
+const autoSignIn = ({ commit }, payload) => {
+  const userId = payload.uid;
+  let currentUser = null;
+  firebase.database().ref('users').child(userId).once('value')
+    .then((user) => {
+      const date = new Date(Date.now());
+      currentUser = {
+        uid: user.val().uid,
+        email: user.val().email,
+        emailVerified: user.val().emailVerified,
+        displayName: user.val().displayName,
+        photoURL: user.val().photoURL,
+        phoneNumber: user.val().phoneNumber,
+        createdAt: user.val().createdAt,
+        updatedAt: user.val().updatedAt,
+        lastLogin: date.toISOString(),
+        isAdmin: user.val().isAdmin,
+      };
+      firebase.database().ref('users').child(userId).update({ lastLogin: currentUser.lastLogin });
+      commit('SET_CURRENT_USER', currentUser);
+      commit('SET_AUTHENTICATED', true);
+      commit('Application/SET_LOADING', false, { root: true });
+      router.push('/dashboard');
+    })
+    .catch((error) => {
+      commit('SET_CURRENT_USER', null);
+      commit('SET_AUTHENTICATED', false);
+      commit('Application/SET_ERROR', error, { root: true });
+      commit('Application/SET_LOADING', false, { root: true });
+    });
+};
 
 const signIn = ({ commit }, payload) => {
   let currentUser = null;
@@ -98,4 +129,5 @@ export default {
   signUp,
   signIn,
   signOut,
+  autoSignIn,
 };

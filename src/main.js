@@ -1,6 +1,7 @@
 import Vue from 'vue';
 import './plugins/vuetify';
 import { sync } from 'vuex-router-sync';
+import firebase from 'firebase';
 import router from './router';
 import store from './store';
 import DateFilter from './filters/date';
@@ -21,4 +22,11 @@ new Vue({
   router,
   store,
   render: h => h(App),
+  created() {
+    firebase.auth().onAuthStateChanged((user) => {
+      if (user) {
+        this.$store.dispatch('Authentication/autoSignIn', user);
+      }
+    });
+  },
 }).$mount('#app');
