@@ -15,9 +15,9 @@
           <td class="text-xs-left">{{ props.item.email }}</td>
           <td class="text-xs-left">{{ props.item.isAdmin ? 'Sim' : 'Não' }}</td>
           <td class="text-xs-left">{{ props.item.emailVerified ? 'Sim' : 'Não' }}</td>
-          <td class="text-xs-left">{{ props.item.createdAt }}</td>
-          <td class="text-xs-left">{{ props.item.updatedAt }}</td>
-          <td class="text-xs-left">{{ props.item.lastLogin }}</td>
+          <td class="text-xs-left">{{ props.item.createdAt | date }}</td>
+          <td class="text-xs-left">{{ props.item.updatedAt | date }}</td>
+          <td class="text-xs-left">{{ props.item.lastLogin | date }}</td>
         </template>
       </v-data-table>
       <div class="text-xs-center pt-2">
