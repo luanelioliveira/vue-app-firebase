@@ -3,6 +3,7 @@ import firebase from 'firebase';
 import router from '@/router/index';
 
 const autoSignIn = ({ commit }, payload) => {
+  commit('Application/SET_LOADING', true, { root: true });
   const userId = payload.uid;
   let currentUser = null;
   firebase.database().ref('users').child(userId).once('value')

@@ -33,7 +33,7 @@ import { mapGetters, mapActions } from 'vuex';
 export default {
   data() {
     return {
-      titlePage: 'Cadastro de Usuários',
+      titlePage: 'Usuários',
       search: '',
       pagination: {},
       selected: [],

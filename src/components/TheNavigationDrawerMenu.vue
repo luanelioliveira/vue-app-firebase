@@ -1,22 +1,17 @@
 <template>
-  <div>
-    <v-list class="pt-0" dense>
-      <TheNavigationDrawerMenuDefault />
-      <TheNavigationDrawerMenuAdmin />
-      <TheNavigationDrawerMenuSignOut />
-    </v-list>
-  </div>
+  <v-list class="pt-0" >
+    <TheNavigationDrawerMenuItems />
+    <TheNavigationDrawerMenuSignOut />
+  </v-list>
 </template>
 
 <script>
-import TheNavigationDrawerMenuDefault from './TheNavigationDrawerMenuDefault.vue';
-import TheNavigationDrawerMenuAdmin from './TheNavigationDrawerMenuAdmin.vue';
+import TheNavigationDrawerMenuItems from './TheNavigationDrawerMenuItems.vue';
 import TheNavigationDrawerMenuSignOut from './TheNavigationDrawerMenuSignOut.vue';
 
 export default {
   components: {
-    TheNavigationDrawerMenuDefault,
-    TheNavigationDrawerMenuAdmin,
+    TheNavigationDrawerMenuItems,
     TheNavigationDrawerMenuSignOut,
   },
 };

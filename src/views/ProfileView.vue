@@ -1,15 +1,13 @@
 <template>
     <section>
-        <v-flex xs12 sm4>
-          <title-page :text="titlePage" />
-        </v-flex>
-
+      <v-flex xs12 sm4>
+        <title-page :text="titlePage" />
+      </v-flex>
       <v-layout
         column
         wrap
         justify-space-around
       >
-
         <v-flex xs12 md3>
           <v-card class="elevation-0 transparent">
             <v-card-text>
@@ -37,7 +35,6 @@
                   required
                 ></v-text-field>
               </v-flex>
-
               <v-flex
                 xs12
                 md6
@@ -51,7 +48,7 @@
               </v-flex>
             </v-card-text>
             <v-card-actions>
-              <v-btn class="ml-0 primary" disabled @click="">Salvar Alterações</v-btn>
+              <v-btn class="ml-0 primary" disabled>Salvar Alterações</v-btn>
             </v-card-actions>
           </v-card>
         </v-flex>

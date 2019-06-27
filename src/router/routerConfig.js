@@ -2,6 +2,7 @@ import SignIn from '@/views/SignIn.vue';
 import SignUp from '@/views/SignUp.vue';
 import DashboardView from '@/views/DashboardView.vue';
 import ProfileView from '@/views/ProfileView.vue';
+import AdminCategoriesView from '@/views/AdminCategoriesView.vue';
 import AdminUsersView from '@/views/AdminUsersView.vue';
 import AdminUsersConfigView from '@/views/AdminUsersConfigView.vue';
 import NotFound from '@/views/NotFound.vue';
@@ -38,6 +39,14 @@ export default [
     },
   },
   {
+    path: '/admin/categories',
+    name: 'users',
+    component: AdminCategoriesView,
+    meta: {
+      requiresAuth: true,
+    },
+  },
+  {
     path: '/admin/users',
     name: 'users',
     component: AdminUsersView,
@@ -46,7 +55,7 @@ export default [
     },
   },
   {
-    path: '/admin/users-config',
+    path: '/admin/config',
     name: 'users',
     component: AdminUsersConfigView,
     meta: {
