@@ -41,15 +41,15 @@ export default {
     return {
       plans: [
         {
-          title: 'Pacote Atleta',
-          icon: 'directions_run',
-        },
-        {
           title: 'Pacote Iniciante',
           icon: 'directions_walk',
         },
         {
           title: 'Pacote Intermediário',
+          icon: 'directions_run',
+        },
+        {
+          title: 'Pacote Atleta',
           icon: 'directions_bike',
         },
       ],
