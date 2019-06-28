@@ -1,15 +1,27 @@
 export default [
   {
-    title: 'Dashboard',
-    icon: 'dashboard',
-    link: '/config',
+    title: 'Meus Atendimentos',
+    icon: 'favorite',
+    link: '/services',
     admin: false,
   },
   {
-    title: 'Meu Perfil',
-    icon: 'person',
-    link: '/profile',
-    admin: false,
+    icon: 'settings',
+    title: 'Minhas Configurações',
+    active: false,
+    admin: true,
+    children: [
+      {
+        title: 'Clientes',
+        icon: 'people',
+        link: '/clients',
+      },
+      {
+        title: 'Planos',
+        icon: 'description',
+        link: '/plans',
+      },
+    ],
   },
   {
     divider: true,

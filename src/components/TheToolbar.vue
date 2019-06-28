@@ -1,17 +1,14 @@
 <template>
   <div id="toolbar">
     <v-toolbar
-      absolute
-      clipped-left
-      app
+      clipped-right
       dark
       color="purple darken-4"
       v-if="isAuthenticated"
     >
-      <TheToolbarSide />
       <TheToolbarTitle />
       <v-spacer></v-spacer>
-      <TheToolbarItemsRight />
+      <TheToolbarSide />
     </v-toolbar>
   </div>
 </template>
@@ -20,13 +17,11 @@
 import { mapState } from 'vuex';
 import TheToolbarSide from './TheToolbarSide.vue';
 import TheToolbarTitle from './TheToolbarTitle.vue';
-import TheToolbarItemsRight from './TheToolbarItemsRight.vue';
 
 export default {
   components: {
     TheToolbarSide,
     TheToolbarTitle,
-    TheToolbarItemsRight,
   },
   computed: {
     ...mapState('Authentication', ['isAuthenticated']),

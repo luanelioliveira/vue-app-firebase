@@ -1,10 +1,12 @@
 import SignIn from '@/views/SignIn.vue';
 import SignUp from '@/views/SignUp.vue';
-import DashboardView from '@/views/DashboardView.vue';
 import ProfileView from '@/views/ProfileView.vue';
-import AdminCategoriesView from '@/views/AdminCategoriesView.vue';
+import MyServicesView from '@/views/MyServicesView.vue';
+import MyClientsView from '@/views/MyClientsView.vue';
+import MyPlansView from '@/views/MyPlansView.vue';
+import AdminDashboardView from '@/views/AdminDashboardView.vue';
 import AdminUsersView from '@/views/AdminUsersView.vue';
-import AdminUsersConfigView from '@/views/AdminUsersConfigView.vue';
+import AdminConfigView from '@/views/AdminConfigView.vue';
 import NotFound from '@/views/NotFound.vue';
 
 export default [
@@ -15,19 +17,19 @@ export default [
   {
     path: '/signin',
     name: 'signin',
+    title: 'Sign In',
     component: SignIn,
+    meta: {
+      title: 'Sign In',
+    },
   },
   {
     path: '/signup',
     name: 'signup',
+    title: 'Sign Up',
     component: SignUp,
-  },
-  {
-    path: '/dashboard',
-    name: 'dashboard',
-    component: DashboardView,
     meta: {
-      requiresAuth: true,
+      title: 'Sign Up',
     },
   },
   {
@@ -36,30 +38,62 @@ export default [
     component: ProfileView,
     meta: {
       requiresAuth: true,
+      title: 'Meu Perfil',
     },
   },
   {
-    path: '/admin/categories',
-    name: 'users',
-    component: AdminCategoriesView,
+    path: '/services',
+    name: 'services',
+    component: MyServicesView,
     meta: {
       requiresAuth: true,
+      title: 'Meus Atendimentos',
+    },
+  },
+  {
+    path: '/clients',
+    name: 'clients',
+    component: MyClientsView,
+    meta: {
+      requiresAuth: true,
+      title: 'Meus Clientes',
+    },
+  },
+  {
+    path: '/plans',
+    name: 'plans',
+    component: MyPlansView,
+    meta: {
+      requiresAuth: true,
+      title: 'Meus Planos',
+    },
+  },
+  {
+    path: '/admin/dashboard',
+    name: 'admin-dashboard',
+    component: AdminDashboardView,
+    meta: {
+      requiresAuth: true,
+      title: 'Dashboard',
     },
   },
   {
     path: '/admin/users',
-    name: 'users',
+    name: 'admin-users',
     component: AdminUsersView,
     meta: {
       requiresAuth: true,
+      title: 'Usuários',
     },
   },
   {
     path: '/admin/config',
-    name: 'users',
-    component: AdminUsersConfigView,
+    name: 'admin-config',
+    title: 'Configurações',
+    component: AdminConfigView,
     meta: {
       requiresAuth: true,
+      title: 'Configurações',
     },
   },
   {

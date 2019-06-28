@@ -2,9 +2,11 @@
   <div>
     <v-list two-line class="pa-1" >
       <v-list-tile avatar>
-        <v-list-tile-avatar>
-          <img :src="currentUser.photoURL">
-        </v-list-tile-avatar>
+        <router-link to="/profile">
+          <v-list-tile-avatar>
+            <img :src="currentUser.photoURL">
+          </v-list-tile-avatar>
+        </router-link>
         <v-list-tile-content>
           <v-list-tile-title>{{currentUser.displayName}}</v-list-tile-title>
           <v-list-tile-sub-title>{{currentUser.email}}</v-list-tile-sub-title>

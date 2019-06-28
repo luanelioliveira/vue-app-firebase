@@ -25,7 +25,11 @@ const autoSignIn = ({ commit }, payload) => {
       commit('SET_CURRENT_USER', currentUser);
       commit('SET_AUTHENTICATED', true);
       commit('Application/SET_LOADING', false, { root: true });
-      router.push('/dashboard');
+      if (currentUser.isAdmin) {
+        router.push('/admin/dashboard');
+      } else {
+        router.push('/services');
+      }
     })
     .catch((error) => {
       commit('SET_CURRENT_USER', null);
@@ -61,7 +65,11 @@ const signIn = ({ commit }, payload) => {
           commit('SET_CURRENT_USER', currentUser);
           commit('SET_AUTHENTICATED', true);
           commit('Application/SET_LOADING', false, { root: true });
-          router.push('/dashboard');
+          if (currentUser.isAdmin) {
+            router.push('/services');
+          } else {
+            router.push('/admin/dashboard');
+          }
         })
         .catch((error) => {
           commit('SET_CURRENT_USER', null);
@@ -107,7 +115,7 @@ const signUp = ({ commit }, payload) => {
       commit('Application/SET_ERROR', null, { root: true });
       commit('SET_AUTHENTICATED', true);
       commit('Application/SET_LOADING', false, { root: true });
-      router.push('/dashboard');
+      router.push('/services');
     })
     .catch((error) => {
       commit('SET_CURRENT_USER', null);

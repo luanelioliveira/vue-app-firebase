@@ -1,30 +1,27 @@
 <template>
-  <div>
-    <title-page :text="titlePage" />
-    <v-flex xs12>
-      <v-data-table
-        :headers="headers"
-        :items="users"
-        :search="search"
-        hide-actions
-        :pagination.sync="pagination"
-        class="elevation-1"
-      >
-        <template v-slot:items="props">
-          <td class="text-xs-left">{{ props.item.displayName }}</td>
-          <td class="text-xs-left">{{ props.item.email }}</td>
-          <td class="text-xs-left">{{ props.item.isAdmin ? 'Sim' : 'Não' }}</td>
-          <td class="text-xs-left">{{ props.item.emailVerified ? 'Sim' : 'Não' }}</td>
-          <td class="text-xs-left">{{ props.item.createdAt | date }}</td>
-          <td class="text-xs-left">{{ props.item.updatedAt | date }}</td>
-          <td class="text-xs-left">{{ props.item.lastLogin | date }}</td>
-        </template>
-      </v-data-table>
-      <div class="text-xs-center pt-2">
-        <v-pagination v-model="pagination.page" :length="pages"></v-pagination>
-      </div>
-    </v-flex>
-  </div>
+  <v-flex xs12>
+    <v-data-table
+      :headers="headers"
+      :items="users"
+      :search="search"
+      hide-actions
+      :pagination.sync="pagination"
+      class="elevation-1"
+    >
+      <template v-slot:items="props">
+        <td class="text-xs-left">{{ props.item.displayName }}</td>
+        <td class="text-xs-left">{{ props.item.email }}</td>
+        <td class="text-xs-left">{{ props.item.isAdmin ? 'Sim' : 'Não' }}</td>
+        <td class="text-xs-left">{{ props.item.emailVerified ? 'Sim' : 'Não' }}</td>
+        <td class="text-xs-left">{{ props.item.createdAt | date }}</td>
+        <td class="text-xs-left">{{ props.item.updatedAt | date }}</td>
+        <td class="text-xs-left">{{ props.item.lastLogin | date }}</td>
+      </template>
+    </v-data-table>
+    <div class="text-xs-center pt-2">
+      <v-pagination v-model="pagination.page" :length="pages"></v-pagination>
+    </div>
+  </v-flex>
 </template>
 
 <script>

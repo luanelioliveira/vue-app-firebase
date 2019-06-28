@@ -3,7 +3,8 @@
     v-model="statusDrawer"
     fixed
     clipped
-    app
+    right
+    temporary
   >
     <TheNavigationDrawerProfile />
     <TheNavigationDrawerMenu />

@@ -1,8 +1,6 @@
 <template>
   <div>
-    <title-page :text="titlePage" />
-    <v-flex>
-    </v-flex>
+    <v-flex></v-flex>
   </div>
 </template>
 
@@ -11,7 +9,7 @@
 export default {
   data() {
     return {
-      titlePage: 'Dashboard',
+      //
     };
   },
 };
