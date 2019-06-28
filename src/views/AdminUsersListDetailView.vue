@@ -1,0 +1,79 @@
+<template>
+  <v-card>
+    <v-toolbar dark color="primary">
+      <v-toolbar-title>Dados do usuário</v-toolbar-title>
+      <v-spacer></v-spacer>
+      <v-toolbar-items>
+        <v-btn icon dark @click="onClose">
+          <v-icon>navigate_before</v-icon>
+        </v-btn>
+      </v-toolbar-items>
+    </v-toolbar>
+    <v-list three-line>
+      <v-list-tile avatar>
+        <v-list-tile-content>
+          <v-list-tile-title>Nome do usuário</v-list-tile-title>
+          <v-list-tile-sub-title>{{user.displayName}}</v-list-tile-sub-title>
+        </v-list-tile-content>
+      </v-list-tile>
+      <v-list-tile avatar>
+        <v-list-tile-content>
+          <v-list-tile-title>Email do usuário</v-list-tile-title>
+          <v-list-tile-sub-title>{{user.email}}</v-list-tile-sub-title>
+        </v-list-tile-content>
+      </v-list-tile>
+      <v-list-tile avatar>
+        <v-list-tile-content>
+          <v-list-tile-title>Último acesso</v-list-tile-title>
+          <v-list-tile-sub-title>{{user.lastLogin | date}}</v-list-tile-sub-title>
+        </v-list-tile-content>
+      </v-list-tile>
+    </v-list>
+    <v-divider></v-divider>
+    <v-list three-line subheader>
+      <v-subheader>Geral</v-subheader>
+      <v-list-tile avatar>
+        <v-list-tile-action>
+          <v-checkbox disabled v-model="user.isAdmin"></v-checkbox>
+        </v-list-tile-action>
+        <v-list-tile-content>
+          <v-list-tile-title>Administrador</v-list-tile-title>
+        </v-list-tile-content>
+      </v-list-tile>
+      <v-list-tile avatar>
+        <v-list-tile-action>
+          <v-checkbox disabled v-model="user.emailVerify"></v-checkbox>
+        </v-list-tile-action>
+        <v-list-tile-content>
+          <v-list-tile-title>Email validado</v-list-tile-title>
+        </v-list-tile-content>
+      </v-list-tile>
+    </v-list>
+  </v-card>
+</template>
+
+<script>
+
+export default {
+  props: ['user'],
+  data() {
+    return {
+      dialog$: false,
+    };
+  },
+  methods: {
+    onClose() {
+      this.dialog$ = false;
+      this.$emit('update:dialog', this.dialog$);
+    },
+  },
+  watch: {
+    dialog: {
+      immediate: true,
+      handler() {
+        this.dialog$ = this.dialog;
+      },
+    },
+  },
+};
+</script>
