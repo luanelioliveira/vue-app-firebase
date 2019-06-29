@@ -6,22 +6,14 @@ export default [
     admin: false,
   },
   {
-    icon: 'settings',
-    title: 'Minhas Configurações',
-    active: false,
-    admin: true,
-    children: [
-      {
-        title: 'Clientes',
-        icon: 'people',
-        link: '/clients',
-      },
-      {
-        title: 'Planos',
-        icon: 'description',
-        link: '/plans',
-      },
-    ],
+    title: 'Meus Clientes',
+    icon: 'people',
+    link: '/clients',
+  },
+  {
+    title: 'Meus Planos',
+    icon: 'description',
+    link: '/plans',
   },
   {
     divider: true,

@@ -1,12 +1,13 @@
 <template>
-  <v-layout row>
-    <v-flex xs12 sm6 offset-sm3>
+  <v-layout>
+    <v-flex>
       <v-card class="elevation-0 transparent">
         <v-list class="transparent">
           <v-list-tile
             v-for="item in clients"
             :key="item.title"
             avatar
+            @click=""
           >
             <v-list-tile-avatar>
               <img :src="item.avatar">

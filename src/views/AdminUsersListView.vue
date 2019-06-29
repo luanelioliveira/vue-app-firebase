@@ -1,9 +1,9 @@
 <template>
   <div>
-     <template v-for="item in users">
+     <template v-for="(item, index) in users">
       <v-list-tile
           avatar 
-          :key="item.email"
+          :key="index"
           @click="setUser(item)"
         >
           <v-list-tile-avatar>
@@ -20,7 +20,7 @@
           </v-list-tile-action>     
         </v-list-tile>
         <v-divider          
-          :key="item.email"
+          :key="index"
           inset
         ></v-divider>        
       </template>        
