@@ -1,6 +1,6 @@
 <template>
-  <v-layout row>
-    <v-flex xs12 sm6 offset-sm3>
+  <v-layout>
+    <v-flex>
       <v-card class="elevation-0 transparent">
         <v-list two-line class="transparent">
           <AdminUsersListView/>

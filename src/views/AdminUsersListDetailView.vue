@@ -1,11 +1,14 @@
 <template>
   <v-card>
     <v-toolbar dark color="primary">
-      <v-toolbar-title>Dados do usuário</v-toolbar-title>
+      <v-btn icon dark @click="onClose">
+        <v-icon>navigate_before</v-icon>
+      </v-btn>    
+      <v-toolbar-title>Dados do Usuário</v-toolbar-title>
       <v-spacer></v-spacer>
       <v-toolbar-items>
-        <v-btn icon dark @click="onClose">
-          <v-icon>navigate_before</v-icon>
+        <v-btn icon dark>
+          <v-icon>more_vert</v-icon>
         </v-btn>
       </v-toolbar-items>
     </v-toolbar>
@@ -30,9 +33,9 @@
       </v-list-tile>
     </v-list>
     <v-divider></v-divider>
-    <v-list three-line subheader>
+    <v-list two-line subheader>
       <v-subheader>Geral</v-subheader>
-      <v-list-tile avatar>
+      <v-list-tile>
         <v-list-tile-action>
           <v-checkbox disabled v-model="user.isAdmin"></v-checkbox>
         </v-list-tile-action>
@@ -40,7 +43,7 @@
           <v-list-tile-title>Administrador</v-list-tile-title>
         </v-list-tile-content>
       </v-list-tile>
-      <v-list-tile avatar>
+      <v-list-tile>
         <v-list-tile-action>
           <v-checkbox disabled v-model="user.emailVerify"></v-checkbox>
         </v-list-tile-action>

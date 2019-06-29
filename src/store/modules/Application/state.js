@@ -3,4 +3,5 @@ export default {
   loading: false,
   error: null,
   drawer: false,
+  dialog: false,
 };

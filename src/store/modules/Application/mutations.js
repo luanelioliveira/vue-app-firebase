@@ -18,9 +18,15 @@ const SET_DRAWER = (state, drawer) => {
   s.drawer = drawer;
 };
 
+const SET_DIALOG = (state, dialog) => {
+  const s = state;
+  s.dialog = dialog;
+};
+
 export default {
   SET_LOADING,
   SET_TITLE,
   SET_ERROR,
   SET_DRAWER,
+  SET_DIALOG,
 };

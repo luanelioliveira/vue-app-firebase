@@ -15,9 +15,14 @@ const setDrawer = ({ commit }, payload) => {
   commit('SET_DRAWER', payload);
 };
 
+const setDialog = ({ commit }, payload) => {
+  commit('SET_DIALOG', payload);
+};
+
 export default {
   setTitle,
   setError,
   setDrawer,
+  setDialog,
   clearError,
 };

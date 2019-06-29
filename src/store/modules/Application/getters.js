@@ -14,9 +14,14 @@ const drawer = (state) => {
   return state.drawer;
 };
 
+const dialog = (state) => {
+  return state.dialog;
+};
+
 export default {
   loading,
   title,
   error,
   drawer,
+  dialog,
 };
