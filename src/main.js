@@ -10,11 +10,14 @@ import 'roboto-fontface/css/roboto/roboto-fontface.css';
 import 'material-design-icons-iconfont/dist/material-design-icons.css';
 import App from './App.vue';
 import TitlePage from './components/TitlePage.vue';
+import BtnFloating from './components/BtnFloating.vue';
 
 Vue.config.productionTip = false;
 
 Vue.filter('date', DateFilter);
 Vue.component('TitlePage', TitlePage);
+Vue.component('BtnFloating', BtnFloating);
+
 
 sync(store, router);
 

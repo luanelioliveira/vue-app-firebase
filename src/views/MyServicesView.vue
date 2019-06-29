@@ -9,8 +9,8 @@
             avatar
             @click=""
           >
-            <v-list-tile-avatar>
-              <img :src="item.avatar">
+            <v-list-tile-avatar color="primary">
+              <span class="white--text headline">{{item.title[0]}}</span>
             </v-list-tile-avatar>
 
             <v-list-tile-content>
@@ -27,16 +27,7 @@
         </v-list>
       </v-card>
     </v-flex>
-    <v-btn
-        dark
-        fab
-        fixed
-        bottom
-        right
-        color="primary"
-      >
-        <v-icon>add</v-icon>
-      </v-btn>
+    <BtnFloating />
   </v-layout>
 </template>
 

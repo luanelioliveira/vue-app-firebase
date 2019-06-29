@@ -21,16 +21,7 @@
           </v-list-tile>
         </v-list>
       </v-card>
-      <v-btn
-        dark
-        fab
-        fixed
-        bottom
-        right
-        color="primary"
-      >
-        <v-icon>add</v-icon>
-      </v-btn>
+      <BtnFloating />
     </v-flex>
   </v-layout>
 </template>
