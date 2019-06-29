@@ -1,7 +1,8 @@
 <template>
+  <v-dialog v-model="show" fullscreen hide-overlay transition="dialog-bottom-transition">
   <v-card>
     <v-toolbar dark color="primary">
-      <v-btn icon dark @click="onClose">
+      <v-btn icon dark @click.stop="show=false">
         <v-icon>navigate_before</v-icon>
       </v-btn>    
       <v-toolbar-title>Dados do Usuário</v-toolbar-title>
@@ -53,30 +54,24 @@
       </v-list-tile>
     </v-list>
   </v-card>
+  </v-dialog>
 </template>
 
 <script>
 
 export default {
-  props: ['user'],
-  data() {
-    return {
-      dialog$: false,
-    };
-  },
-  methods: {
-    onClose() {
-      this.dialog$ = false;
-      this.$emit('update:dialog', this.dialog$);
-    },
-  },
-  watch: {
-    dialog: {
-      immediate: true,
-      handler() {
-        this.dialog$ = this.dialog;
+  props: ['user', 'visible'],
+  computed: {
+    show: {
+      get () {
+        return this.visible;
       },
-    },
-  },
+      set (value) {
+        if (!value) {
+          this.$emit('close');
+        }
+      }
+    }
+  }
 };
 </script>

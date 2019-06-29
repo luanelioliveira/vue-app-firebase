@@ -4,7 +4,7 @@
       <v-list-tile
           avatar 
           :key="index"
-          @click="setUser(item)"
+          @click.stop="setUser(item)"
         >
           <v-list-tile-avatar>
             <img :src="item.photoURL">
@@ -20,13 +20,13 @@
           </v-list-tile-action>     
         </v-list-tile>
         <v-divider          
-          :key="index"
           inset
         ></v-divider>        
       </template>        
-      <v-dialog v-model="dialog" fullscreen hide-overlay transition="dialog-bottom-transition">
-        <AdminUsersListDetailView :user="userDetail" :dialog.sync="dialog"/>
-      </v-dialog>
+      <AdminUsersListDetailView 
+       :user="userDetail"
+       :visible="dialog" @close="dialog=false"
+      />
   </div>
 </template>
 

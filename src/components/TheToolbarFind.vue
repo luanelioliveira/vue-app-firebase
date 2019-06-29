@@ -1,5 +1,5 @@
 <template>
-  <v-btn large icon>
+  <v-btn icon dark>
     <v-icon>search</v-icon>
   </v-btn>    
 </template>
