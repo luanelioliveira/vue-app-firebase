@@ -7,11 +7,9 @@
       </v-btn>    
       <v-toolbar-title>Dados do Usuário</v-toolbar-title>
       <v-spacer></v-spacer>
-      <v-toolbar-items>
         <v-btn icon dark>
           <v-icon>more_vert</v-icon>
         </v-btn>
-      </v-toolbar-items>
     </v-toolbar>
     <v-list three-line>
       <v-list-tile avatar>
