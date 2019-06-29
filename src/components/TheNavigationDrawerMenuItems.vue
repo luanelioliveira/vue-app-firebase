@@ -1,7 +1,6 @@
 <template>
   <div>
-    <template v-for='items in menuItems'>
-      <template v-for='(item, index) in items'>
+      <template v-for='(item, index) in menuItems'>
         <v-list-group
           v-if='item.children'
           v-model='item.active'
@@ -41,23 +40,28 @@
           </v-list-tile-content>
         </v-list-tile>
       </template>
-    </template>
   </div>
 </template>
 
 <script>
 import { mapGetters } from 'vuex';
-import menuAdmin from '@/configs/menu/admin';
-import menuDefault from '@/configs/menu/default';
+import menuItemsAdmin from '@/configs/menu/admin';
+import menuItemsDefault from '@/configs/menu/default';
 
 export default {
   computed: {
     ...mapGetters('Authentication', ['isAdmin']),
     menuItems() {
       const menu = [];
-      menu.push(menuDefault);
+
+      for (const item of menuItemsDefault) {
+        menu.push(item);
+      }
+
       if (this.isAdmin) {
-        menu.push(menuAdmin);
+        for (const item of menuItemsAdmin) {
+          menu.push(item);
+        }
       }
       return menu;
     },
