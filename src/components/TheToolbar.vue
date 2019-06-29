@@ -9,6 +9,7 @@
       <TheToolbarSide />
       <TheToolbarTitle />
       <v-spacer></v-spacer>
+      <TheToolbarFind />
     </v-toolbar>
   </div>
 </template>
@@ -17,11 +18,13 @@
 import { mapState } from 'vuex';
 import TheToolbarSide from './TheToolbarSide.vue';
 import TheToolbarTitle from './TheToolbarTitle.vue';
+import TheToolbarFind from './TheToolbarFind.vue';
 
 export default {
   components: {
     TheToolbarSide,
     TheToolbarTitle,
+    TheToolbarFind,
   },
   computed: {
     ...mapState('Authentication', ['isAuthenticated']),
