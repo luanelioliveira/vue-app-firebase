@@ -4,8 +4,8 @@
       <v-card class="elevation-0 transparent">
         <v-list two-line class="transparent">
           <v-list-tile
-            v-for="item in services"
-            :key="item.title"
+            v-for="(item, index) in services"
+            :key="index"
             avatar
             @click=""
           >
