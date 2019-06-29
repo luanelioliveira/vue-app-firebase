@@ -3,7 +3,7 @@
     v-model="statusDrawer"
     fixed
     clipped
-    right
+    left
     temporary
   >
     <TheNavigationDrawerProfile />

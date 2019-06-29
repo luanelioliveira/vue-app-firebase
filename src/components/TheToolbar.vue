@@ -1,14 +1,14 @@
 <template>
   <div id="toolbar">
     <v-toolbar
-      clipped-right
+      clipped-left
       dark
       color="purple darken-4"
       v-if="isAuthenticated"
     >
+      <TheToolbarSide />
       <TheToolbarTitle />
       <v-spacer></v-spacer>
-      <TheToolbarSide />
     </v-toolbar>
   </div>
 </template>
