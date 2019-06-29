@@ -1,12 +1,13 @@
 <template>
-  <v-layout row>
-    <v-flex xs12 sm6 offset-sm3>
+  <v-layout>
+    <v-flex>
       <v-card class="elevation-0 transparent">
         <v-list two-line class="transparent">
           <v-list-tile
             v-for="item in services"
             :key="item.title"
             avatar
+            @click=""
           >
             <v-list-tile-avatar>
               <img :src="item.avatar">
@@ -48,22 +49,32 @@ export default {
         {
           avatar: 'https://cdn.vuetifyjs.com/images/lists/1.jpg',
           title: 'Jason Oner',
-          subtitle: 'Jun 9, 2019',
+          subtitle: '10 min',
+        },
+        {
+          avatar: 'https://cdn.vuetifyjs.com/images/lists/5.jpg',
+          title: 'Carlson Ali',
+          subtitle: '2 hr',
         },
         {
           avatar: 'https://cdn.vuetifyjs.com/images/lists/2.jpg',
           title: 'Ranee Carlson',
-          subtitle: 'Jun 9, 2019',
+          subtitle: 'Hoje 20:20',
         },
         {
           avatar: 'https://cdn.vuetifyjs.com/images/lists/2.jpg',
           title: 'Ranee Carlson',
-          subtitle: 'Jun 10, 2019',
+          subtitle: '23 de junho 11:20',
         },
         {
           avatar: 'https://cdn.vuetifyjs.com/images/lists/4.jpg',
           title: 'Ali Connors',
-          subtitle: 'Jun 11, 2019',
+          subtitle: '24 de junho 10:11',
+        },
+        {
+          avatar: 'https://cdn.vuetifyjs.com/images/lists/5.jpg',
+          title: 'Ranee Jason',
+          subtitle: '24 de junho 10:11',
         },
       ],
     };

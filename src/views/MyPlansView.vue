@@ -1,12 +1,13 @@
 <template>
-  <v-layout row>
-    <v-flex xs12 sm6 offset-sm3>
+  <v-layout>
+    <v-flex>
       <v-card class="elevation-0 transparent">
         <v-list class="transparent">
           <v-list-tile
             v-for="item in plans"
             :key="item.title"
             avatar
+            @click=""
           >
             <v-list-tile-avatar>
               <v-icon :class="[item.iconClass]">{{ item.icon }}</v-icon>
@@ -41,15 +42,15 @@ export default {
     return {
       plans: [
         {
-          title: 'Pacote Iniciante',
+          title: 'Plano Iniciante',
           icon: 'directions_walk',
         },
         {
-          title: 'Pacote Intermediário',
+          title: 'Plano Intermediário',
           icon: 'directions_run',
         },
         {
-          title: 'Pacote Atleta',
+          title: 'Plano Atleta',
           icon: 'directions_bike',
         },
       ],
