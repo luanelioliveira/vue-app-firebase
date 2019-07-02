@@ -1,9 +1,9 @@
 import SignIn from '@/views/SignIn.vue';
 import SignUp from '@/views/SignUp.vue';
-import ProfileView from '@/views/ProfileView.vue';
-import MyServicesView from '@/views/MyServicesView.vue';
-import MyClientsView from '@/views/MyClientsView.vue';
-import MyPlansView from '@/views/MyPlansView.vue';
+import ProfileView from '@/views/Profile/ProfileView.vue';
+import ServicesView from '@/views/Services/ServicesView.vue';
+import CustomersView from '@/views/Customers/CustomersView.vue';
+import PlansView from '@/views/Plans/PlansView.vue';
 import DashboardView from '@/views/Admin/Dashboard/DashboardView.vue';
 import ConfigurationView from '@/views/Admin/Configuration/ConfigurationView.vue';
 import UsersView from '@/views/Admin/Users/UsersView.vue';
@@ -44,16 +44,16 @@ export default [
   {
     path: '/services',
     name: 'services',
-    component: MyServicesView,
+    component: ServicesView,
     meta: {
       requiresAuth: true,
       title: 'Meus Atendimentos',
     },
   },
   {
-    path: '/clients',
-    name: 'clients',
-    component: MyClientsView,
+    path: '/customers',
+    name: 'customers',
+    component: CustomersView,
     meta: {
       requiresAuth: true,
       title: 'Meus Clientes',
@@ -62,7 +62,7 @@ export default [
   {
     path: '/plans',
     name: 'plans',
-    component: MyPlansView,
+    component: PlansView,
     meta: {
       requiresAuth: true,
       title: 'Meus Planos',

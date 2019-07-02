@@ -1,48 +1,48 @@
 <template>
   <div>
     <v-list-tile
-      v-for="item in plans"
-      :key="item.title"
+      v-for="plan in plans"
+      :key="plan.title"
       avatar
       @click.stop="dialog = true"
     >
       <v-list-tile-avatar>
-        <v-icon :class="[item.iconClass]">{{ item.icon }}</v-icon>
+        <v-icon :class="[plan.iconClass]">{{ plan.icon }}</v-icon>
       </v-list-tile-avatar>
       <v-list-tile-content>
-        <v-list-tile-title v-html="item.title"></v-list-tile-title>
+        <v-list-tile-title v-html="plan.name"></v-list-tile-title>
       </v-list-tile-content>
       <v-list-tile-action>
         <v-icon color="primary">navigate_next</v-icon>
       </v-list-tile-action>
     </v-list-tile>
-    <MyPlansListDetailView
+    <PlansListDetailView
       :visible="dialog" @close="dialog=false"
     />
   </div>
 </template>
 
 <script>
-import MyPlansListDetailView from './MyPlansListDetailView.vue';
+import PlansListDetailView from './PlansListDetailView.vue';
 
 export default {
   components: {
-    MyPlansListDetailView,
+    PlansListDetailView,
   },
   data() {
     return {
       dialog: false,
       plans: [
         {
-          title: 'Plano Iniciante',
+          name: 'Plano Iniciante',
           icon: 'directions_walk',
         },
         {
-          title: 'Plano Intermediário',
+          name: 'Plano Intermediário',
           icon: 'directions_run',
         },
         {
-          title: 'Plano Atleta',
+          name: 'Plano Atleta',
           icon: 'directions_bike',
         },
       ],

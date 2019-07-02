@@ -3,7 +3,7 @@
     <v-flex>
       <v-card class="elevation-0 transparent">
         <v-list class="transparent">
-          <MyPlansListView/>
+          <PlansListView/>
         </v-list>
       </v-card>
     </v-flex>
@@ -12,11 +12,11 @@
 </template>
 
 <script>
-import MyPlansListView from './MyPlansListView.vue';
+import PlansListView from './PlansListView.vue';
 
 export default {
   components: {
-    MyPlansListView,
+    PlansListView,
   },
 };
 </script>

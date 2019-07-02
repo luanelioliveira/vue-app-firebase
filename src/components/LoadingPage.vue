@@ -1,29 +1,10 @@
 <template>
-  <loading
-    :show='loading'
-    :label='label'
-    :overlay='overlay'>
-  </loading>
+  <v-layout>
+    <v-flex>
+      <v-progress-circular
+        indeterminate
+        color="primary"
+      ></v-progress-circular>
+    </v-flex>
+  </v-layout>
 </template>
-
-<script>
-// eslint-disable-next-line
-import Loading from 'vue-full-loading';
-import { mapState } from 'vuex';
-
-export default {
-  data() {
-    return {
-      show: false,
-      overlay: true,
-      label: 'Loading...',
-    };
-  },
-  components: {
-    Loading,
-  },
-  computed: {
-    ...mapState('Application', ['loading']),
-  },
-};
-</script>
