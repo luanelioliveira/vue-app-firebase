@@ -4,8 +4,7 @@
       fab
       fixed
       bottom
-      right
-      small
+      right      
       color="primary"
     >
       <v-icon>add</v-icon>

@@ -4,7 +4,7 @@
     <v-toolbar dark color="primary">
       <v-btn icon dark @click.stop="show=false">
         <v-icon>navigate_before</v-icon>
-      </v-btn>    
+      </v-btn>
       <v-toolbar-title>Dados do Usuário</v-toolbar-title>
       <v-spacer></v-spacer>
         <v-btn icon dark>
@@ -61,15 +61,15 @@ export default {
   props: ['user', 'visible'],
   computed: {
     show: {
-      get () {
+      get() {
         return this.visible;
       },
-      set (value) {
+      set(value) {
         if (!value) {
           this.$emit('close');
         }
-      }
-    }
-  }
+      },
+    },
+  },
 };
 </script>
