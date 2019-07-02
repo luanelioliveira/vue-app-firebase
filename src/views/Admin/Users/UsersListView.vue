@@ -30,7 +30,7 @@
 
 <script>
 import { mapGetters, mapActions } from 'vuex';
-import AdminUsersListDetailView from './AdminUsersListDetailView.vue';
+import AdminUsersListDetailView from './UsersListDetailView.vue';
 
 export default {
   data() {

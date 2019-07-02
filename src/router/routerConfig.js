@@ -4,9 +4,9 @@ import ProfileView from '@/views/ProfileView.vue';
 import MyServicesView from '@/views/MyServicesView.vue';
 import MyClientsView from '@/views/MyClientsView.vue';
 import MyPlansView from '@/views/MyPlansView.vue';
-import AdminDashboardView from '@/views/AdminDashboardView.vue';
-import AdminUsersView from '@/views/AdminUsersView.vue';
-import AdminConfigView from '@/views/AdminConfigView.vue';
+import DashboardView from '@/views/Admin/Dashboard/DashboardView.vue';
+import ConfigurationView from '@/views/Admin/Configuration/ConfigurationView.vue';
+import UsersView from '@/views/Admin/Users/UsersView.vue';
 import NotFound from '@/views/NotFound.vue';
 
 export default [
@@ -71,7 +71,7 @@ export default [
   {
     path: '/admin/dashboard',
     name: 'admin-dashboard',
-    component: AdminDashboardView,
+    component: DashboardView,
     meta: {
       requiresAuth: true,
       title: 'Dashboard',
@@ -80,7 +80,7 @@ export default [
   {
     path: '/admin/users',
     name: 'admin-users',
-    component: AdminUsersView,
+    component: UsersView,
     meta: {
       requiresAuth: true,
       title: 'Usuários',
@@ -90,7 +90,7 @@ export default [
     path: '/admin/config',
     name: 'admin-config',
     title: 'Configurações',
-    component: AdminConfigView,
+    component: ConfigurationView,
     meta: {
       requiresAuth: true,
       title: 'Configurações',

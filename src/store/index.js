@@ -7,8 +7,7 @@ import getters from './getters';
 import Application from './modules/Application';
 // eslint-disable-next-line
 import Authentication from './modules/Authentication';
-import Users from './modules/Users';
-
+import Users from '@/views/Admin/Users/store';
 
 Vue.use(Vuex);
 

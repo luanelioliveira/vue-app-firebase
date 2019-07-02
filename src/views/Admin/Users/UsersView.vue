@@ -11,7 +11,7 @@
 </template>
 
 <script>
-import AdminUsersListView from './AdminUsersListView.vue';
+import AdminUsersListView from './UsersListView.vue';
 
 export default {
   components: {
