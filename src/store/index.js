@@ -8,6 +8,7 @@ import Application from './modules/Application';
 // eslint-disable-next-line
 import Authentication from './modules/Authentication';
 import Users from '@/views/Admin/Users/store';
+import Plans from '@/views/Plans/store';
 
 Vue.use(Vuex);
 
@@ -15,6 +16,7 @@ const modules = {
   Application,
   Authentication,
   Users,
+  Plans,
 };
 
 export default new Vuex.Store({

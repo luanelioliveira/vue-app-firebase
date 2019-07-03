@@ -4,13 +4,16 @@
       v-for="plan in plans"
       :key="plan.title"
       avatar
+      three-line
       @click.stop="dialog = true"
     >
       <v-list-tile-avatar>
         <v-icon :class="[plan.iconClass]">{{ plan.icon }}</v-icon>
       </v-list-tile-avatar>
       <v-list-tile-content>
-        <v-list-tile-title v-html="plan.name"></v-list-tile-title>
+        <v-list-tile-title>
+        {{plan.name}}
+        </v-list-tile-title>
       </v-list-tile-content>
       <v-list-tile-action>
         <v-icon color="primary">navigate_next</v-icon>

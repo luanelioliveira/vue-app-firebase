@@ -8,7 +8,7 @@ export default [
   {
     title: 'Meus Clientes',
     icon: 'people',
-    link: '/clients',
+    link: '/customers',
   },
   {
     title: 'Meus Planos',

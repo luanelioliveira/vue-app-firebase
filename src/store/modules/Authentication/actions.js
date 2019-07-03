@@ -20,6 +20,7 @@ const autoSignIn = ({ commit }, payload) => {
         updatedAt: user.val().updatedAt,
         lastLogin: date.toISOString(),
         isAdmin: user.val().isAdmin,
+        plans: user.val().plans,
       };
       firebase.database().ref('users').child(userId).update({ lastLogin: currentUser.lastLogin });
       commit('SET_CURRENT_USER', currentUser);
@@ -60,6 +61,7 @@ const signIn = ({ commit }, payload) => {
             updatedAt: user.val().updatedAt,
             lastLogin: date.toISOString(),
             isAdmin: user.val().isAdmin,
+            plans: user.val().plans,
           };
           firebase.database().ref('users').child(userId).update({ lastLogin: currentUser.lastLogin });
           commit('SET_CURRENT_USER', currentUser);
@@ -108,6 +110,7 @@ const signUp = ({ commit }, payload) => {
         updatedAt: date.toISOString(),
         lastLogin: date.toISOString(),
         isAdmin: false,
+        plans: [],
       };
       const usersRef = firebase.database().ref('users').child(currentUser.uid);
       usersRef.set(currentUser);

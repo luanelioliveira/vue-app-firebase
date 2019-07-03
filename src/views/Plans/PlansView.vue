@@ -7,16 +7,23 @@
         </v-list>
       </v-card>
     </v-flex>
-    <BtnFloating />
+    <PlansAddView />
   </v-layout>
 </template>
 
 <script>
 import PlansListView from './PlansListView.vue';
+import PlansAddView from './PlansAddView.vue';
 
 export default {
   components: {
     PlansListView,
+    PlansAddView,
+  },
+  data() {
+    return {
+      dialog: false,
+    };
   },
 };
 </script>
