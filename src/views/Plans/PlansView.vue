@@ -20,10 +20,5 @@ export default {
     PlansListView,
     PlansAddView,
   },
-  data() {
-    return {
-      dialog: false,
-    };
-  },
 };
 </script>

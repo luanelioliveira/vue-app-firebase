@@ -1,9 +1,10 @@
 
 import firebase from 'firebase';
 
-const getPlans = ({ commit }) => {
+const getPlans = ({ rootState, commit }) => {
   commit('Application/SET_LOADING', true, { root: true });
-  firebase.database().ref('plans').once('value')
+  const userId = rootState.Authentication.currentUser.uid;
+  firebase.database().ref('plans').child(userId).once('value')
     .then((data) => {
       const plans = [];
       const dataPlans = data.val();
@@ -12,12 +13,10 @@ const getPlans = ({ commit }) => {
         plans.push({
           id: key,
           createdAt: dataPlans[key].createdAt,
-          creatorId: dataPlans[key].creatorId,
           name: dataPlans[key].name,
           status: dataPlans[key].status,
         });
       }
-      console.log(plans);
       commit('SET_PLANS', plans);
       commit('Application/SET_LOADING', false, { root: true });
     })
@@ -27,15 +26,16 @@ const getPlans = ({ commit }) => {
     });
 };
 
-const updatePlan = ({ commit }, payload) => {
+const updatePlan = ({ rootState, commit }, payload) => {
   commit('Application/SET_LOADING', true, { root: true });
+  const userId = rootState.Authentication.currentUser.uid;
   const date = new Date(Date.now());
   const plan = {
     id: payload.id,
     name: payload.name,
     updatedAt: date.toISOString(),
   };
-  firebase.database().ref('plans').child(payload.id).update(plan)
+  firebase.database().ref(`plans/${userId}`).child(payload.id).update(plan)
     .then(() => {
       commit('UPDATE_PLAN', plan);
       commit('Application/SET_LOADING', false, { root: true });
@@ -46,17 +46,17 @@ const updatePlan = ({ commit }, payload) => {
     });
 };
 
-const addPlan = ({ commit }, payload) => {
+const addPlan = ({ rootState, commit }, payload) => {
   commit('Application/SET_LOADING', true, { root: true });
+  const userId = rootState.Authentication.currentUser.uid;
   const date = new Date(Date.now());
   const plan = {
     createdAt: date.toISOString(),
     updatedAt: date.toISOString(),
-    creatorId: payload.userId,
     name: payload.plan.name,
     status: 'active',
   };
-  firebase.database().ref('plans').push(plan)
+  firebase.database().ref('plans').child(userId).push(plan)
     .then((data) => {
       commit('ADD_PLAN', {
         ...plan,

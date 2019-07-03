@@ -38,7 +38,7 @@
 </template>
 
 <script>
-import { mapActions, mapState } from 'vuex';
+import { mapActions } from 'vuex';
 
 export default {
   data() {
@@ -50,14 +50,10 @@ export default {
       title: 'Novo Plano',
     };
   },
-  computed: {
-    ...mapState('Authentication', ['currentUser']),
-  },
   methods: {
     ...mapActions('Plans', ['addPlan']),
     add() {
       const payload = {
-        userId: this.currentUser.uid,
         plan: this.plan,
       };
       this.addPlan(payload);
