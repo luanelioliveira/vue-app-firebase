@@ -7,16 +7,18 @@
         </v-list>
       </v-card>
     </v-flex>
-    <BtnFloating />
+    <CustomersAddView />
   </v-layout>
 </template>
 
 <script>
 import CustomersListView from './CustomersListView.vue';
+import CustomersAddView from './CustomersAddView.vue';
 
 export default {
   components: {
     CustomersListView,
+    CustomersAddView,
   },
 };
 </script>

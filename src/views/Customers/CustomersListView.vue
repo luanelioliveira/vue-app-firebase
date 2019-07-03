@@ -4,7 +4,7 @@
       v-for="customer in customers"
       :key="customer.title"
       avatar
-      @click.stop="dialog = true"
+      @click.stop="setCustomer(customer)"
     >
       <v-list-tile-avatar color="primary">
         <span class="white--text headline">{{customer.name[0]}}</span>
@@ -16,41 +16,50 @@
         <v-icon color="primary">navigate_next</v-icon>
       </v-list-tile-action>
     </v-list-tile>
-    <CustomersListDetailView
-      :visible="dialog" @close="dialog=false"
+    <CustomersEditView
+      :data="customerDetail" :visible="dialog" @close="dialog=false"
     />
   </div>
 </template>
 
 <script>
-import CustomersListDetailView from './CustomersListDetailView.vue';
+import { mapActions, mapState } from 'vuex';
+import CustomersEditView from './CustomersEditView.vue';
 
 export default {
   components: {
-    CustomersListDetailView,
+    CustomersEditView,
   },
   data() {
     return {
       dialog: false,
-      customers: [
-        {
-          name: 'Jason Oner',
-          photoURL: 'https://cdn.vuetifyjs.com/images/lists/1.jpg',
-        },
-        {
-          name: 'Ranee Carlson',
-          photoURL: 'https://cdn.vuetifyjs.com/images/lists/2.jpg',
-        },
-        {
-          name: 'Cindy Baker',
-          photoURL: 'https://cdn.vuetifyjs.com/images/lists/3.jpg',
-        },
-        {
-          name: 'Ali Connors',
-          photoURL: 'https://cdn.vuetifyjs.com/images/lists/4.jpg',
-        },
-      ],
+      customerDetail: {
+        id: '',
+        name: '',
+        creatorId: '',
+        createdAt: '',
+        status: '',
+      },
     };
+  },
+  mounted() {
+    this.getCustomers();
+  },
+  computed: {
+    ...mapState('Customers', ['customers']),
+  },
+  methods: {
+    ...mapActions('Customers', ['getCustomers']),
+    setCustomer(customer) {
+      this.customerDetail = {
+        id: customer.id,
+        name: customer.name,
+        creatorId: customer.creatorId,
+        createdAt: customer.createdAt,
+        status: customer.status,
+      };
+      this.dialog = true;
+    },
   },
 };
 </script>
