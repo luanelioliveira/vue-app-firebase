@@ -1,38 +1,39 @@
 <template>
-  <div>
-    <v-list-tile
-      v-for="(service, index) in services"
-      :key="index"
-      avatar
-      @click.stop="dialog = true"
-    >
-      <v-list-tile-avatar color="primary">
-        <span class="white--text headline">{{service.customer.name[0]}}</span>
-      </v-list-tile-avatar>
+  <v-card class="elevation-0 transparent">
+    <v-list two-line class="transparent">
+      <v-list-tile
+        v-for="(service, index) in services"
+        :key="index"
+        avatar
+        @click.stop="dialog = true"
+      >
+        <v-list-tile-avatar color="primary">
+          <span class="white--text headline">{{service.customer.name[0]}}</span>
+        </v-list-tile-avatar>
 
-      <v-list-tile-content>
-        <v-list-tile-title>{{ service.customer.name }}</v-list-tile-title>
-        <v-list-tile-sub-title>{{ service.date }}</v-list-tile-sub-title>
-      </v-list-tile-content>
+        <v-list-tile-content>
+          <v-list-tile-title>{{ service.customer.name }}</v-list-tile-title>
+          <v-list-tile-sub-title>{{ service.date }}</v-list-tile-sub-title>
+        </v-list-tile-content>
 
-      <v-list-tile-action>
-        <v-btn icon ripple>
-          <v-icon color="grey lighten-1">info</v-icon>
-        </v-btn>
-      </v-list-tile-action>
-    </v-list-tile>
-    <ServicesListDetailView
-     :visible="dialog" @close="dialog=false"
-    />
-  </div>
+        <v-list-tile-action>
+          <v-btn icon ripple>
+            <v-icon color="grey lighten-1">info</v-icon>
+          </v-btn>
+        </v-list-tile-action>
+      </v-list-tile>
+      <ServicesListDetail :visible="dialog" @close="dialog=false"/>
+    </v-list>
+    <BtnFloating />
+  </v-card>
 </template>
 
 <script>
-import ServicesListDetailView from './ServicesListDetailView.vue';
+import ServicesListDetail from './ServicesListDetail.vue';
 
 export default {
   components: {
-    ServicesListDetailView,
+    ServicesListDetail,
   },
   data() {
     return {

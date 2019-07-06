@@ -1,5 +1,5 @@
-import SignIn from '@/views/Auth/SignIn.vue';
-import SignUp from '@/views/Auth/SignUp.vue';
+import SignInView from '@/views/Auth/SignInView.vue';
+import SignUpView from '@/views/Auth/SignUpView.vue';
 import ProfileView from '@/views/Profile/ProfileView.vue';
 import ServicesView from '@/views/Services/ServicesView.vue';
 import CustomersView from '@/views/Customers/CustomersView.vue';
@@ -18,7 +18,7 @@ export default [
     path: '/signin',
     name: 'signin',
     title: 'Sign In',
-    component: SignIn,
+    component: SignInView,
     meta: {
       title: 'Sign In',
     },
@@ -27,7 +27,7 @@ export default [
     path: '/signup',
     name: 'signup',
     title: 'Sign Up',
-    component: SignUp,
+    component: SignUpView,
     meta: {
       title: 'Sign Up',
     },
