@@ -12,13 +12,11 @@
         </v-btn>
       </v-toolbar>
       <v-card-text>
-        <v-container grid-list-md>
-          <v-layout wrap>
-            <v-flex xs12>
-              <v-text-field v-model="data.name" label="Nome do plano*" required></v-text-field>
-            </v-flex>
-          </v-layout>
-        </v-container>
+        <v-layout wrap>
+          <v-flex xs12>
+            <v-text-field v-model="data.name" label="Nome do plano*" required></v-text-field>
+          </v-flex>
+        </v-layout>
       </v-card-text>
     </v-card>
   </v-dialog>

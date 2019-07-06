@@ -17,7 +17,7 @@
           <v-icon color="primary">navigate_next</v-icon>
         </v-list-tile-action>
       </v-list-tile>
-      <CustomerEdit :data="customerDetail" :visible="dialog" @close="dialog=false" />
+      <CustomerDetail :customer="customer" :visible="dialog" @close="dialog=false" />
       <CustomerAdd />
     </v-list>
   </v-card>
@@ -25,18 +25,18 @@
 
 <script>
 import { mapActions, mapState } from 'vuex';
-import CustomerEdit from './CustomerEdit.vue';
+import CustomerDetail from './CustomerDetail.vue';
 import CustomerAdd from './CustomerAdd.vue';
 
 export default {
   components: {
-    CustomerEdit,
+    CustomerDetail,
     CustomerAdd,
   },
   data() {
     return {
       dialog: false,
-      customerDetail: {
+      customer: {
         id: '',
         name: '',
         creatorId: '',
@@ -53,13 +53,13 @@ export default {
   },
   methods: {
     ...mapActions('Customers', ['getCustomers']),
-    setCustomer(customer) {
-      this.customerDetail = {
-        id: customer.id,
-        name: customer.name,
-        creatorId: customer.creatorId,
-        createdAt: customer.createdAt,
-        status: customer.status,
+    setCustomer(data) {
+      this.customer = {
+        id: data.id,
+        name: data.name,
+        creatorId: data.creatorId,
+        createdAt: data.createdAt,
+        status: data.status,
       };
       this.dialog = true;
     },

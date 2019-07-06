@@ -3,12 +3,12 @@
   <v-card>
     <v-toolbar dark color="primary">
       <v-btn icon dark @click.stop="show=false">
-        <v-icon>navigate_before</v-icon>
+        <v-icon>arrow_back</v-icon>
       </v-btn>
       <v-toolbar-title>Dados do Usuário</v-toolbar-title>
       <v-spacer></v-spacer>
         <v-btn icon dark>
-          <v-icon>more_vert</v-icon>
+          <v-icon>edit</v-icon>
         </v-btn>
     </v-toolbar>
     <v-list three-line>

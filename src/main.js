@@ -5,6 +5,7 @@ import firebase from 'firebase';
 import router from './router';
 import store from './store';
 import DateFilter from './filters/date';
+import DateTimeFilter from './filters/dateTime';
 import '@/configs/firebase/';
 import 'roboto-fontface/css/roboto/roboto-fontface.css';
 import 'material-design-icons-iconfont/dist/material-design-icons.css';
@@ -16,6 +17,8 @@ import './registerServiceWorker';
 Vue.config.productionTip = false;
 
 Vue.filter('date', DateFilter);
+Vue.filter('dateTime', DateTimeFilter);
+
 Vue.component('TitlePage', TitlePage);
 Vue.component('BtnFloating', BtnFloating);
 

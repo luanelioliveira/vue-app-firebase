@@ -1,11 +1,8 @@
 export default (value) => {
   const date = new Date(value);
-  const options = {
+  return date.toLocaleDateString(['pt-BR'], {
     month: 'short',
     day: '2-digit',
     year: 'numeric',
-    hour: '2-digit',
-    minute: '2-digit',
-  };
-  return date.toLocaleDateString(['pt-BR'], options);
+  });
 };

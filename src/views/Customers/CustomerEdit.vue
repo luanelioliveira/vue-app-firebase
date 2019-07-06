@@ -1,8 +1,13 @@
 <template>
-  <v-dialog v-model="show" fullscreen hide-overlay transition="dialog-bottom-transition">
+  <v-dialog v-model="showEdit" fullscreen hide-overlay transition="dialog-bottom-transition">
+    <template v-slot:activator="{ on }">
+      <v-btn icon dark color="primary" v-on="on">
+        <v-icon>edit</v-icon>
+      </v-btn>
+    </template>  
     <v-card>
       <v-toolbar dark color="primary">
-        <v-btn icon dark @click.stop="show=false">
+        <v-btn icon dark @click.stop="showEdit=false">
           <v-icon>arrow_back</v-icon>
         </v-btn>
         <v-toolbar-title>{{title}}</v-toolbar-title>
@@ -12,13 +17,11 @@
         </v-btn>
       </v-toolbar>
       <v-card-text>
-        <v-container grid-list-md>
           <v-layout wrap>
             <v-flex xs12>
-              <v-text-field v-model="data.name" label="Nome" required></v-text-field>
+              <v-text-field v-model="customer.name" label="Nome" required></v-text-field>
             </v-flex>
           </v-layout>
-        </v-container>
       </v-card-text>
     </v-card>
   </v-dialog>
@@ -28,29 +31,21 @@
 import { mapActions } from 'vuex';
 
 export default {
-  props: ['visible', 'data'],
+  props: ['customer'],
   data() {
     return {
-      title: 'Detalhes do Cliente',
+      title: 'Alterar Cliente',
+      showEdit: false,
     };
-  },
-  computed: {
-    show: {
-      get() {
-        return this.visible;
-      },
-      set(value) {
-        if (!value) {
-          this.$emit('close');
-        }
-      },
-    },
   },
   methods: {
     ...mapActions('Customers', ['updateCustomer']),
     update() {
-      this.updateCustomer(this.data);
-      this.show = false;
+      this.updateCustomer(this.customer);
+      this.close();
+    },
+    close() {
+      this.showEdit = false;
     },
   },
 };
