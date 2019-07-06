@@ -1,0 +1,20 @@
+{ 
+    "name": "AtendsUp", 
+    "short_name": "AtendsUp", 
+    "start_url": "index.html",
+    "display": "fullscreen", 
+    "theme_color": "#4A148C",
+    "background_color": "#fff", 
+    "icons": [ 
+      {
+        "src": "/images/icon-192.png",
+        "type": "image/png",
+        "sizes": "192x192"
+      },
+      {
+        "src": "/images/icon-512.png",
+        "type": "image/png",
+        "sizes": "512x512"
+      }
+    ] 
+  }

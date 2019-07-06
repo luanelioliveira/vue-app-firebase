@@ -1,5 +1,5 @@
-import SignIn from '@/views/SignIn.vue';
-import SignUp from '@/views/SignUp.vue';
+import SignIn from '@/views/Auth/SignIn.vue';
+import SignUp from '@/views/Auth/SignUp.vue';
 import ProfileView from '@/views/Profile/ProfileView.vue';
 import ServicesView from '@/views/Services/ServicesView.vue';
 import CustomersView from '@/views/Customers/CustomersView.vue';
@@ -103,6 +103,6 @@ export default [
   },
   {
     path: '*',
-    component: NotFound,
+    redirect: '/signin',
   },
 ];

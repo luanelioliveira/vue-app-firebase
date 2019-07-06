@@ -4,7 +4,7 @@
       <v-list-tile avatar>
         <router-link to="/profile">
           <v-list-tile-avatar>
-            <img :src="currentUser.photoURL">
+            <img alt="Image Profile" :src="currentUser.photoURL">
           </v-list-tile-avatar>
         </router-link>
         <v-list-tile-content>

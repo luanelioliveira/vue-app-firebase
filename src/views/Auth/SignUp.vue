@@ -6,7 +6,7 @@
           <v-card-title primary-title>
             <div>
               <div class="display-1 font-weight-thin">Criar Conta</div>
-              <span class="grey--text">Informe seu dados para criar sua conta!</span>
+              <span>Informe seu dados para criar sua conta!</span>
             </div>
           </v-card-title>
           <v-card-text>

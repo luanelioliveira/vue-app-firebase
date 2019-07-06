@@ -11,6 +11,7 @@ import 'material-design-icons-iconfont/dist/material-design-icons.css';
 import App from './App.vue';
 import TitlePage from './components/TitlePage.vue';
 import BtnFloating from './components/BtnFloating.vue';
+import './registerServiceWorker';
 
 Vue.config.productionTip = false;
 
