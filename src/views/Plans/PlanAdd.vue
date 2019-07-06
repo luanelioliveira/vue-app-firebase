@@ -20,15 +20,15 @@
       </v-btn>
       <v-toolbar-title>{{title}}</v-toolbar-title>
       <v-spacer></v-spacer>
-      <v-toolbar-items>
-        <v-btn dark flat @click="add">SALVAR</v-btn>
-      </v-toolbar-items>
+      <v-btn icon dark @click.stop="add">
+        <v-icon>send</v-icon>
+      </v-btn>
     </v-toolbar>
     <v-card-text>
       <v-container grid-list-md>
         <v-layout wrap>
           <v-flex xs12>
-            <v-text-field v-model="plan.name" label="Nome do plano*" required></v-text-field>
+            <v-text-field v-model="plan.name" label="Nome" required></v-text-field>
           </v-flex>
         </v-layout>
       </v-container>
