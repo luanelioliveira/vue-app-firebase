@@ -14,6 +14,9 @@ const UPDATE_CUSTOMER = (state, payload) => {
   if (payload.updatedAt) {
     customer.updatedAt = payload.updatedAt;
   }
+  if (payload.plans) {
+    customer.plans = payload.plans;
+  }
 };
 
 const SET_CUSTOMERS = (state, payload) => {
@@ -21,8 +24,20 @@ const SET_CUSTOMERS = (state, payload) => {
   s.customers = payload;
 };
 
+const SET_CUSTOMER_PLANS = (state, payload) => {
+  const s = state;
+  s.customerPlans = payload;
+};
+
+const ADD_CUSTOMER_PLAN = (state, payload) => {
+  const s = state;
+  s.customerPlans.push(payload);
+};
+
 export default {
   ADD_CUSTOMER,
   UPDATE_CUSTOMER,
   SET_CUSTOMERS,
+  SET_CUSTOMER_PLANS,
+  ADD_CUSTOMER_PLAN,
 };

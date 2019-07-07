@@ -18,33 +18,34 @@
         </v-list-tile>
         <v-list-tile avatar>
           <v-list-tile-content>
-            <v-list-tile-title>Desde</v-list-tile-title>
+            <v-list-tile-title>Cliente Desde</v-list-tile-title>
             <v-list-tile-sub-title>{{customer.createdAt | date}}</v-list-tile-sub-title>
           </v-list-tile-content>
         </v-list-tile>
       </v-list>
+      <CustomerPlansList />
       <v-card-text>
-          <v-layout wrap>
-            <v-flex xs12>
-              <CustomerAddPlans :customer="customer" />
-            </v-flex>
-          </v-layout>
-      </v-card-text>      
+        <CustomerAddPlans :customer="customer" />
+      </v-card-text>
     </v-card>
   </v-dialog>
 </template>
 
 <script>
+import { mapState } from 'vuex';
 import CustomerEdit from './CustomerEdit.vue';
 import CustomerAddPlans from './CustomerAddPlans.vue';
+import CustomerPlansList from './CustomerPlansList.vue';
 
 export default {
   components: {
     CustomerEdit,
     CustomerAddPlans,
+    CustomerPlansList,
   },
   props: ['customer', 'visible'],
   computed: {
+    ...mapState('Customers', ['customerPlans']),
     show: {
       get() {
         return this.visible;

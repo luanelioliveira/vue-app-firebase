@@ -39,7 +39,6 @@ export default {
       customer: {
         id: '',
         name: '',
-        creatorId: '',
         createdAt: '',
         status: '',
       },
@@ -53,14 +52,15 @@ export default {
   },
   methods: {
     ...mapActions('Customers', ['getCustomers']),
+    ...mapActions('Customers', ['getCustomerPlans']),
     setCustomer(data) {
       this.customer = {
         id: data.id,
         name: data.name,
-        creatorId: data.creatorId,
         createdAt: data.createdAt,
         status: data.status,
       };
+      this.getCustomerPlans(this.customer.id);
       this.dialog = true;
     },
   },

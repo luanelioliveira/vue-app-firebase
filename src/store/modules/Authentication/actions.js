@@ -20,7 +20,6 @@ const autoSignIn = ({ commit }, payload) => {
         updatedAt: user.val().updatedAt,
         lastLogin: date.toISOString(),
         isAdmin: user.val().isAdmin,
-        plans: user.val().plans,
       };
       firebase.database().ref('users').child(userId).update({ lastLogin: currentUser.lastLogin });
       commit('SET_CURRENT_USER', currentUser);
