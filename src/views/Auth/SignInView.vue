@@ -1,15 +1,14 @@
 <template>
   <v-container fill-height>
     <v-layout justify-center align-center>
-      <v-flex xs12 sm10 md8 lg5 xl4>
+      <v-flex xs12 sm10 md8 lg6 xl3>
+        <p class="text-xs-center"><img alt="Vue logo" src="../../assets/logo.png"></p>
         <v-card class="elevation-0 transparent">
-          <v-card-title primary-title>
-            <div>
+          <v-card-content>
+            <div class="mb-4 text-xs-center">
               <div class="display-1 font-weight-thin">Acessar Conta</div>
               <span>Informe seu e-mail e senha para acessar sua conta!</span>
             </div>
-          </v-card-title>
-          <v-card-text>
             <v-form @submit.prevent="login" autocomplete="off">
               <v-text-field
                outline
@@ -40,7 +39,7 @@
               </v-btn>
               <v-btn class="ml-0" outline color="primary" to="/signup">Criar conta</v-btn>
             </v-form>
-          </v-card-text>
+          </v-card-content>
         </v-card>
       </v-flex>
     </v-layout>

@@ -1,7 +1,7 @@
 { 
     "name": "AtendsUp", 
     "short_name": "AtendsUp", 
-    "start_url": "index.html",
+    "start_url": "/",
     "display": "fullscreen", 
     "theme_color": "#4A148C",
     "background_color": "#fff", 
