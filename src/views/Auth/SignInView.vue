@@ -2,10 +2,10 @@
   <v-container fill-height>
     <v-layout justify-center align-center>
       <v-flex xs12 sm10 md8 lg6 xl3>
-        <p class="text-xs-center"><img alt="Vue logo" src="../../assets/logo.png"></p>
         <v-card class="elevation-0 transparent">
           <v-card-content>
             <div class="mb-4 text-xs-center">
+              <img alt="Vue logo" src="../../assets/logo.png">
               <div class="display-1 font-weight-thin">Acessar Conta</div>
               <span>Informe seu e-mail e senha para acessar sua conta!</span>
             </div>
