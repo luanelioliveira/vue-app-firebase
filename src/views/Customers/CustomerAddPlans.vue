@@ -2,7 +2,7 @@
   <v-dialog v-model="show" fullscreen hide-overlay transition="dialog-bottom-transition">
     <template v-slot:activator="{ on }">
       <v-btn
-        depressed block large color="primary"
+        depressed round block large color="primary"
         v-on="on"
       >
         Adicionar Planos
@@ -32,7 +32,7 @@
             </v-list-tile-title>
           </v-list-tile-content>
           <v-list-tile-action>
-            <v-btn dark fab small color="primary" @click.stop="add(plan)">
+            <v-btn dark depressed fab small color="primary" @click.stop="add(plan)">
               <v-icon>add</v-icon>
             </v-btn>
           </v-list-tile-action>
@@ -42,7 +42,7 @@
         v-model="snackbar"
         color="success"
         multi-line
-        timeout="3000"
+        timeout=3000
       >
         {{snackbarMessage}}
         <v-btn
@@ -61,13 +61,13 @@
 import { mapActions, mapState } from 'vuex';
 
 export default {
-  props: ['customer'],
   data() {
     return {
       show: false,
       snackbar: false,
       snackbarMessage: '',
       title: 'Planos',
+      plansData: [],
     };
   },
   mounted() {
@@ -75,17 +75,18 @@ export default {
   },
   computed: {
     ...mapState('Plans', ['plans']),
+    ...mapState('Customers', ['currentCustomer']),
   },
   methods: {
     ...mapActions('Plans', ['getPlans']),
     ...mapActions('Customers', ['addPlan']),
     add(planAdd) {
       const data = {
-        customer: this.customer,
+        customer: this.currentCustomer,
         plan: planAdd,
       };
       this.addPlan(data);
-      this.snackbarMessage = `Plano ${data.name} foi adicionado com sucesso!`;
+      this.snackbarMessage = `Plano ${planAdd.name} adicionado com sucesso!`;
       this.snackbar = true;
     },
   },

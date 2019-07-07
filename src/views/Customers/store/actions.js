@@ -1,6 +1,10 @@
 
 import firebase from 'firebase';
 
+const setCurrentCustomer = ({ commit }, payload) => {
+  commit('SET_CURRENT_CUSTOMER', payload);
+};
+
 const getCustomers = ({ rootState, commit }) => {
   commit('Application/SET_LOADING', true, { root: true });
   const userId = rootState.Authentication.currentUser.uid;
@@ -15,7 +19,6 @@ const getCustomers = ({ rootState, commit }) => {
           createdAt: dataCustomers[key].createdAt,
           name: dataCustomers[key].name,
           status: dataCustomers[key].status,
-          plans: dataCustomers[key].plans,
         });
       }
       commit('SET_CUSTOMERS', customers);
@@ -59,7 +62,6 @@ const addCustomer = ({ rootState, commit }, payload) => {
     updatedAt: date.toISOString(),
     name: payload.customer.name,
     status: 'active',
-    plans: [],
   };
   firebase.database().ref('customers').child(userId).push(customer)
     .then((data) => {
@@ -122,6 +124,7 @@ const getCustomerPlans = ({ rootState, commit }, payload) => {
 
 
 export default {
+  setCurrentCustomer,
   addCustomer,
   getCustomers,
   updateCustomer,

@@ -1,3 +1,8 @@
+const SET_CURRENT_CUSTOMER = (state, payload) => {
+  const s = state;
+  s.currentCustomer = payload;
+};
+
 const ADD_CUSTOMER = (state, payload) => {
   const s = state;
   s.customers.push(payload);
@@ -35,6 +40,7 @@ const ADD_CUSTOMER_PLAN = (state, payload) => {
 };
 
 export default {
+  SET_CURRENT_CUSTOMER,
   ADD_CUSTOMER,
   UPDATE_CUSTOMER,
   SET_CUSTOMERS,

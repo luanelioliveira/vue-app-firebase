@@ -38,28 +38,19 @@
         </v-list-tile-action>
       </v-list-tile>
     </v-list>
+    <v-card-text>
+      <CustomerAddPlans />
+    </v-card-text>
   </v-card>
 </template>
 
 <script>
 import { mapState } from 'vuex';
+import CustomerAddPlans from './CustomerAddPlans.vue';
 
 export default {
-  data() {
-    return {
-      header: '',
-    };
-  },
-  watch: {
-    customerPlans(val) {
-      console.log(val);
-      console.log(val.lenght);
-      if (val.lenght > 0) {
-        this.header = 'Planos disponíveis';
-      } else {
-        this.header = 'Não há planos disponíveis';
-      }
-    },
+  components: {
+    CustomerAddPlans,
   },
   computed: {
     ...mapState('Customers', ['customerPlans']),

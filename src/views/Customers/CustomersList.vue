@@ -53,6 +53,7 @@ export default {
   methods: {
     ...mapActions('Customers', ['getCustomers']),
     ...mapActions('Customers', ['getCustomerPlans']),
+    ...mapActions('Customers', ['setCurrentCustomer']),
     setCustomer(data) {
       this.customer = {
         id: data.id,
@@ -60,6 +61,7 @@ export default {
         createdAt: data.createdAt,
         status: data.status,
       };
+      this.setCurrentCustomer(data);
       this.getCustomerPlans(this.customer.id);
       this.dialog = true;
     },

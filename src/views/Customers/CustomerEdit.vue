@@ -4,7 +4,7 @@
       <v-btn icon dark color="primary" v-on="on">
         <v-icon>edit</v-icon>
       </v-btn>
-    </template>  
+    </template>
     <v-card>
       <v-toolbar dark color="primary">
         <v-btn icon dark @click.stop="showEdit=false">
@@ -19,7 +19,7 @@
       <v-card-text>
           <v-layout wrap>
             <v-flex xs12>
-              <v-text-field v-model="customer.name" label="Nome" required></v-text-field>
+              <v-text-field v-model="currentCustomer.name" label="Nome" required></v-text-field>
             </v-flex>
           </v-layout>
       </v-card-text>
@@ -28,20 +28,22 @@
 </template>
 
 <script>
-import { mapActions } from 'vuex';
+import { mapActions, mapState } from 'vuex';
 
 export default {
-  props: ['customer'],
   data() {
     return {
       title: 'Alterar Cliente',
       showEdit: false,
     };
   },
+  computed: {
+    ...mapState('Customers', ['currentCustomer']),
+  },
   methods: {
     ...mapActions('Customers', ['updateCustomer']),
     update() {
-      this.updateCustomer(this.customer);
+      this.updateCustomer(this.currentCustomer);
       this.close();
     },
     close() {
